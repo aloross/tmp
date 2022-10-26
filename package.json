@@ -2,11 +2,11 @@
   "name": "tfm4",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn workspace @tfm4/front next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "tsc:watch": "tsc --build tsconfig.references.json --watch",
+    "tsc:build": "tsc --build tsconfig.references.json"
   },
   "dependencies": {
     "react": "18.2.0",
