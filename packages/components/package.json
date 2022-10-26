@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "@tfm4/components",
   "packageManager": "yarn@3.2.4",
   "version": "0.1.0",
   "main": "dist/index.js",

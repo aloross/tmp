@@ -261,6 +261,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tfm4/components@workspace:packages/components":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/components@workspace:packages/components"
+  dependencies:
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
 "@tfm4/front@workspace:packages/apps/front":
   version: 0.0.0-use.local
   resolution: "@tfm4/front@workspace:packages/apps/front"
@@ -646,12 +654,6 @@ __metadata:
   checksum: b0445859521eb4021cd0fb0cc1a75cecf67fceecae89b63f62b201cca8d345baf8b952c966862a9d9a2632987d4f6581f0ec8d957dfacece86f0a7919316f610
   languageName: node
   linkType: hard
-
-"components@workspace:packages/components":
-  version: 0.0.0-use.local
-  resolution: "components@workspace:packages/components"
-  languageName: unknown
-  linkType: soft
 
 "concat-map@npm:0.0.1":
   version: 0.0.1
