@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "references": [
+        { "path": "./packages/components" },
+        { "path": "./packages/lib" },
+    ],
+    "files": [],
+    "include": [],
+    "exclude": [
+        "**/node_modules",
+        "**/dist",
+        "./packages/**/*.spec.ts",
+        "./packages/**/test"
+      ]
+}
