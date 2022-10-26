@@ -1,0 +1,9 @@
+{
+  "name": "@tfm4/lib",
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "@apollo/client": "^3.7.0",
+    "graphql": "^16.6.0"
+  },
+  "main": "src/apolloClient.ts"
+}
