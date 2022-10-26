@@ -1,1 +1,0 @@
-self.__RSC_MANIFEST={"__ssr_module_mapping__":{},"__edge_ssr_module_mapping__":{},"__client_css_manifest__":{}}
