@@ -12,26 +12,12 @@
     "node": true
   },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "@next/next/no-html-link-for-pages": ["error", "packages/apps/front/app/"]
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
+    "@next/next/no-html-link-for-pages": ["error", "packages/apps/front/app/"],
+    "import/no-unresolved": ["error", { "ignore": ["gql/.*"] }]
   }
 }

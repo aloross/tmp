@@ -1,5 +1,5 @@
 import client from '@tfm4/lib'
-import { graphql } from '../gql'
+import { graphql } from 'gql/generated'
 
 const GET_RESTAURANT = graphql(`
   query getRestaurant($restaurantUuid: String!) {
