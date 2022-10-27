@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+    - name: Install modules
+      run: yarn
+    - name: Build modules
+      run: yarn tsc:build
+    - name: Run ESLint
+      run: yarn lint
