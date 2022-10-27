@@ -4,17 +4,22 @@
   "private": true,
   "packageManager": "yarn@3.2.4",
   "scripts": {
-    "dev": "yarn workspace @tfm4/front next dev",
+    "dev": "yarn workspace @tfm4/front next dev & graphql-codegen --config codegen.ts --watch & tsc --build tsconfig.references.json --watch",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
     "tsc": "exit 0",
-    "lint": "eslint packages --ext .jsx,.js,.ts,.tsx"
+    "lint": "eslint packages --ext .jsx,.js,.ts,.tsx",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "graphql": "^16.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.13.8",
+    "@graphql-codegen/client-preset": "1.1.1",
     "@types/node": "18.11.5",
     "@types/react": "18.0.23",
     "@types/react-dom": "18.0.7",
