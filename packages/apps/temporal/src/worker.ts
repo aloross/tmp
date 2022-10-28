@@ -1,12 +1,19 @@
 import { Worker } from '@temporalio/worker'
-import * as activities from './activities'
+import { activities } from '@tfm4/workflow-reservation'
+
+const {
+  greet,
+} = activities
 
 async function run() {
   // Step 1: Register Workflows and Activities with the Worker and connect to
   // the Temporal server.
   const worker = await Worker.create({
-    workflowsPath: require.resolve('./workflows'),
-    activities,
+    // workflowsPath: require.resolve('./workflows'),
+    // workflowBundle: {},
+    activities: {
+      greet,
+    },
     taskQueue: 'hello-world',
   })
   // Worker connects to localhost by default and uses console.error for logging.

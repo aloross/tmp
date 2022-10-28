@@ -1,0 +1,13 @@
+{
+  "name": "@tfm4/workflow-reservation",
+  "packageManager": "yarn@3.2.4",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@temporalio/workflow": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "4.8.4"
+  }
+}

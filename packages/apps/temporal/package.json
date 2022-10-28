@@ -3,12 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "tsc --build",
-    "build.watch": "tsc --build --watch",
     "lint": "eslint .",
     "start": "ts-node src/worker.ts",
-    "start.watch": "nodemon src/worker.ts",
-    "workflow": "ts-node src/client.ts"
+    "start.watch": "nodemon src/worker.ts"
   },
   "nodemonConfig": {
     "execMap": {
@@ -24,6 +21,7 @@
     "@temporalio/client": "^1.0.0",
     "@temporalio/worker": "^1.0.0",
     "@temporalio/workflow": "^1.0.0",
+    "@tfm4/workflow-reservation": "workspace:*",
     "nanoid": "3.x"
   },
   "devDependencies": {

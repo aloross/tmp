@@ -3,7 +3,10 @@
   "references": [
     { "path": "./packages/components" },
     { "path": "./packages/lib" },
-    { "path": "./packages/generated" }
+    { "path": "./packages/generated" },
+    { "path": "./packages/apps/temporal" },
+    { "path": "./packages/workflows/reservation" },
+    { "path": "./packages/actions/reservation" }
   ],
   "files": [],
   "include": [],

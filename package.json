@@ -5,6 +5,7 @@
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn workspace @tfm4/front next dev & graphql-codegen --config codegen.ts --watch & tsc --build tsconfig.references.json --watch",
+    "dev:temporal": "yarn workspace @tfm4/temporal start.watch",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
     "tsc": "exit 0",
@@ -12,7 +13,8 @@
     "codegen": "graphql-codegen --config codegen.ts",
     "codegen:watch": "graphql-codegen --config codegen.ts",
     "dump:db:hasura": "docker-compose exec -T postgres_hasura pg_dump -U postgres postgres --no-owner | gzip -9  > data/backup/db-backup-$(date +%d-%m-%y).sql.gz",
-    "restore:dc:hasura": "docker-compose exec -T postgres_hasura psql -U postgres -d postgres < data/backup/backup-schema.sql"
+    "restore:dc:hasura": "docker-compose exec -T postgres_hasura psql -U postgres -d postgres < data/backup/backup-schema.sql",
+    "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo"
   },
   "dependencies": {
     "graphql": "^16.6.0",
@@ -29,7 +31,10 @@
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "typescript": "4.8.4"
   },
   "workspaces": [
