@@ -11,7 +11,8 @@
     "lint": "eslint packages --ext .jsx,.js,.ts,.tsx",
     "codegen": "graphql-codegen --config codegen.ts",
     "codegen:watch": "graphql-codegen --config codegen.ts",
-    "dump:db:hasura": "docker-compose exec postgres_hasura pg_dump -U postgres postgres --no-owner | gzip -9  > data/backup/db-backup-$(date +%d-%m-%y).sql.gz"
+    "dump:db:hasura": "docker-compose exec -T postgres_hasura pg_dump -U postgres postgres --no-owner | gzip -9  > data/backup/db-backup-$(date +%d-%m-%y).sql.gz",
+    "restore:dc:hasura": "docker-compose exec -T postgres_hasura psql -U postgres -d postgres < data/backup/backup-schema.sql"
   },
   "dependencies": {
     "graphql": "^16.6.0",
