@@ -46,3 +46,5 @@ tfm4.iml
 .idea
 
 dist
+
+.env
