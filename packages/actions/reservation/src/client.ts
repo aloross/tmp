@@ -30,7 +30,7 @@ async function run() {
   console.log(await handle.result()) // Hello, Temporal!
 }
 
-run().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+// run().catch((err) => {
+//   console.error(err)
+//   process.exit(1)
+// })
