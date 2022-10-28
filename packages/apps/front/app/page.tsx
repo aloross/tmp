@@ -1,14 +1,13 @@
-import { gql } from '@apollo/client'
 import client from '@tfm4/lib'
+import { graphql } from 'gql/generated'
 
-const GET_RESTAURANT = gql`
+const GET_RESTAURANT = graphql(`
   query getRestaurant($restaurantUuid: String!) {
     restaurant(restaurantUuid: $restaurantUuid) {
       name
-      __typename
     }
   }
-`
+`)
 
 export default async function Home() {
   const restaurant = await getData()

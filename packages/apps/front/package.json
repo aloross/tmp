@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
+    "@tfm4/generated": "*",
     "@tfm4/lib": "*",
     "graphql": "^16.6.0",
     "next": "13.0.0",
