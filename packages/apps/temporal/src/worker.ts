@@ -1,5 +1,5 @@
 import { Worker } from '@temporalio/worker'
-import { activities } from '@tfm4/workflow-reservation'
+import { activities, workflows } from '@tfm4/workflow-reservation'
 
 const {
   greet,
@@ -9,8 +9,10 @@ async function run() {
   // Step 1: Register Workflows and Activities with the Worker and connect to
   // the Temporal server.
   const worker = await Worker.create({
-    workflowsPath: require.resolve('./workflows'),
-    // workflowBundle: {},
+    workflowsPath: require.resolve('../../workflows/reservation/src/workflows.js'),
+    // workflowBundle: {
+    //   code: workflows,
+    // },
     activities: {
       greet,
     },
