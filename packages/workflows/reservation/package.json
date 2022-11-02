@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@temporalio/workflow": "^1.0.0"
+    "@temporalio/workflow": "^1.0.0",
+    "zod": "^3.19.1"
   },
   "devDependencies": {
     "typescript": "4.8.4"

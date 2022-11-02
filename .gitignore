@@ -48,3 +48,6 @@ tfm4.iml
 dist
 
 .env
+
+.serverless
+.esbuild

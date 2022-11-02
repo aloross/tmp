@@ -1,0 +1,29 @@
+service: tfm4-worker
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+plugins:
+  - serverless-offline
+  - serverless-esbuild
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  createReservation:
+    handler: src/reservation/create.createReservation
+    events:
+      - httpApi:
+          path: /reservation/create
+          method: post
+
