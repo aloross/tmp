@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@tfm4/action-reservation": "workspace:*",
+    "@tfm4/workflow-reservation": "workspace:*",
     "serverless": "^3.23.0",
     "zod": "^3.19.1"
   },
