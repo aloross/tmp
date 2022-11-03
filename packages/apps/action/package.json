@@ -1,0 +1,20 @@
+{
+  "name": "@tfm4/action",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "sls offline start"
+  },
+  "dependencies": {
+    "@tfm4/action-reservation": "workspace:*",
+    "@tfm4/workflow-reservation": "workspace:*",
+    "serverless": "^3.23.0",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.108",
+    "esbuild": "^0.15.12",
+    "serverless-esbuild": "^1.33.0",
+    "serverless-offline": "^11.2.3",
+    "typescript": "4.8.4"
+  }
+}

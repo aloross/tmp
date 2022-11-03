@@ -5,14 +5,19 @@
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn workspace @tfm4/front next dev & graphql-codegen --config codegen.ts --watch & tsc --build tsconfig.references.json --watch",
+    "dev:worker": "yarn workspace @tfm4/workflow-reservation dev",
+    "dev:action": "yarn workspace @tfm4/action dev",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
+    "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo",
     "tsc": "exit 0",
     "lint": "eslint packages --ext .jsx,.js,.ts,.tsx",
     "codegen": "graphql-codegen --config codegen.ts",
     "codegen:watch": "graphql-codegen --config codegen.ts",
-    "dump:db:hasura": "docker-compose exec -T postgres_hasura pg_dump -U postgres postgres --no-owner | gzip -9  > data/backup/db-backup-$(date +%d-%m-%y).sql.gz",
-    "restore:dc:hasura": "docker-compose exec -T postgres_hasura psql -U postgres -d postgres < data/backup/backup-schema.sql"
+    "dump:db:hasura": "curl -XPOST -H \"Content-type: application/json\" -d '{  \"opts\": [\"-O\", \"-x\", \"--schema\", \"public\"],\n  \"clean_output\": true,\n  \"source\": \"default\"\n}' 'http://localhost:8081/v1alpha1/pg_dump' > data/backup/backup-schema.sql",
+    "restore:dc:hasura": "docker-compose exec -T postgres_hasura psql -U postgres -d postgres < data/backup/backup-schema.sql",
+    "hasura:metadata:export": "curl -d'{\"type\": \"export_metadata\", \"args\": {}}' http://localhost:8081/v1/metadata -o data/metadata/hasura_metadata.json",
+    "hasura:metadata:apply": "curl -d'{\"type\":\"replace_metadata\", \"args\":'$(cat data/metadata/hasura_metadata.json)'}' http://localhost:8081/v1/metadata"
   },
   "dependencies": {
     "graphql": "^16.6.0",
@@ -29,7 +34,10 @@
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "typescript": "4.8.4"
   },
   "workspaces": [
