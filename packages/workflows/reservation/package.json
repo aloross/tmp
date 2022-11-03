@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node dist/worker.js",
-    "start.watch": "nodemon dist/worker.js"
+    "start": "ts-node src/worker.ts",
+    "dev": "nodemon src/worker.ts"
   },
   "dependencies": {
     "@temporalio/activity": "^1.0.0",
