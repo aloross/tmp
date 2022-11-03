@@ -1,5 +1,5 @@
 import { Handler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
-import { ExampleSchema, ExampleParams,  } from '@tfm4/workflow-reservation'
+import { ExampleSchema, ExampleParams } from '@tfm4/workflow-reservation'
 import { createReservationAction } from '@tfm4/action-reservation'
 import { ZodError } from 'zod'
 
