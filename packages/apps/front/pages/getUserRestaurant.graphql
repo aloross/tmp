@@ -1,0 +1,6 @@
+query getUserRestaurant($userId: uuid!) {
+  restaurant(where: { restaurant_users: { user: { id: { _eq: $userId } } } }) {
+    name
+    id
+  }
+}
