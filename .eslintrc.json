@@ -18,6 +18,6 @@
     "semi": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "@next/next/no-html-link-for-pages": ["error", "packages/apps/front/app/"],
-    "import/no-unresolved": ["error", { "ignore": ["gql/.*"] }]
+    "import/no-unresolved": ["error", { "ignore": ["@tfm4/generated.*"] }]
   }
 }

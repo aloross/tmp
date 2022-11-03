@@ -18,6 +18,9 @@ export const authOptions: NextAuthOptions = {
   theme: {
     colorScheme: 'auto',
   },
+  pages: {
+    signIn: '/signin',
+  },
   session: { strategy: 'jwt' },
   jwt: {
     encode: ({ secret, token }) => {
