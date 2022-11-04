@@ -4,7 +4,7 @@
     { "path": "./packages/components" },
     { "path": "./packages/lib" },
     { "path": "./packages/generated" },
-    { "path": "./packages/workflows/reservation" },
+    { "path": "./packages/apps/worker/reservation" },
     { "path": "./packages/actions/reservation" }
   ],
   "files": [],

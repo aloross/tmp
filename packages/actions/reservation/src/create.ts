@@ -1,5 +1,5 @@
 import {Connection, WorkflowClient} from '@temporalio/client'
-import { example, ExampleParams } from '@tfm4/workflow-reservation'
+import { example, ExampleParams } from '@tfm4/worker-reservation'
 import {nanoid} from 'nanoid'
 
 
