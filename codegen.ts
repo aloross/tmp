@@ -2,12 +2,15 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: 'https://manager.preprod.thefork.com/api/graphql',
-  documents: 'packages/apps/front/app/**/*.tsx',
+  schema: 'http://localhost:8081/v1/graphql',
+  documents: 'packages/apps/front/pages/**/*.graphql',
   generates: {
-    'packages/generated/src/': {
-      preset: 'client',
-      plugins: [],
+    'packages/generated/src/index.ts': {
+      plugins: [
+        'typescript',
+        'typescript-operations',
+        'typescript-react-apollo',
+      ],
     },
   },
 }

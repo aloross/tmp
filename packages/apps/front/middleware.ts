@@ -2,15 +2,28 @@ import { withAuth } from 'next-auth/middleware'
 
 export default withAuth({
   callbacks: {
-    authorized({ req, token }) {
-      // `/admin` requires admin role
-      if (req.nextUrl.pathname === '/admin') {
-        return token?.userRole === 'admin'
+    async authorized({ req }) {
+      const cookie = req.headers.get('cookie')
+
+      if (!cookie) {
+        return false
       }
-      // `/me` only requires the user to be logged in
-      return !!token
+      const response = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/auth/session`,
+        {
+          headers: { cookie },
+        },
+      )
+
+      if (!response?.ok) {
+        return false
+      }
+
+      const session = await response.json()
+
+      return session && Object.keys(session).length > 0
     },
   },
 })
 
-export const config = { matcher: ['/admin', '/me'] }
+export const config = { matcher: ['/', '/me'] }
