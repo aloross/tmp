@@ -4,9 +4,10 @@
   "private": true,
   "packageManager": "yarn@3.2.4",
   "scripts": {
-    "dev": "yarn workspace @tfm4/front next dev & graphql-codegen --config codegen.ts --watch & tsc --build tsconfig.references.json --watch",
+    "dev": "yarn workspaces foreach -p -v -i run dev",
     "dev:worker": "yarn workspace @tfm4/worker-reservation dev",
     "dev:action": "yarn workspace @tfm4/action dev",
+    "dev:front": "yarn workspace @tfm4/front dev",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
     "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo",
