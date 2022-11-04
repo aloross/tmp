@@ -7547,6 +7547,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hasura@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "hasura@npm:2.0.1"
+  checksum: 42f94d29cc8f8040a6aaaae1776f79eb7e03760a8290fa6eaefa96139d66964d747a03260063056fd7008643e1612b30c4588ce17714d3606ba3522d4ea16e8a
+  languageName: node
+  linkType: hard
+
 "header-case@npm:^2.0.4":
   version: 2.0.4
   resolution: "header-case@npm:2.0.4"
@@ -11554,6 +11561,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-react: ^7.31.10
     graphql: ^16.6.0
+    hasura: ^2.0.1
     prettier: ^2.7.1
     react: 18.2.0
     react-dom: 18.2.0

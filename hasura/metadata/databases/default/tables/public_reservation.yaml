@@ -1,0 +1,10 @@
+table:
+  name: reservation
+  schema: public
+object_relationships:
+  - name: customer
+    using:
+      foreign_key_constraint_on: customer_id
+  - name: restaurant
+    using:
+      foreign_key_constraint_on: restaurant_id
