@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@temporalio/client": "^1.0.0",
-    "@tfm4/workflow-reservation": "workspace:*",
+    "@tfm4/worker-reservation": "workspace:*",
     "nanoid": "3.x"
   },
   "devDependencies": {

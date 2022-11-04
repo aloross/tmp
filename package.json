@@ -5,7 +5,7 @@
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn workspace @tfm4/front next dev & graphql-codegen --config codegen.ts --watch & tsc --build tsconfig.references.json --watch",
-    "dev:worker": "yarn workspace @tfm4/workflow-reservation dev",
+    "dev:worker": "yarn workspace @tfm4/worker-reservation dev",
     "dev:action": "yarn workspace @tfm4/action dev",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",

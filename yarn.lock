@@ -3356,7 +3356,7 @@ __metadata:
   resolution: "@tfm4/action-reservation@workspace:packages/actions/reservation"
   dependencies:
     "@temporalio/client": ^1.0.0
-    "@tfm4/workflow-reservation": "workspace:*"
+    "@tfm4/worker-reservation": "workspace:*"
     nanoid: 3.x
     typescript: 4.8.4
   languageName: unknown
@@ -3367,7 +3367,7 @@ __metadata:
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
     "@tfm4/action-reservation": "workspace:*"
-    "@tfm4/workflow-reservation": "workspace:*"
+    "@tfm4/worker-reservation": "workspace:*"
     "@types/aws-lambda": ^8.10.108
     esbuild: ^0.15.12
     serverless: ^3.23.0
@@ -3425,9 +3425,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/workflow-reservation@workspace:*, @tfm4/workflow-reservation@workspace:packages/workflows/reservation":
+"@tfm4/worker-reservation@workspace:*, @tfm4/worker-reservation@workspace:packages/apps/worker/reservation":
   version: 0.0.0-use.local
-  resolution: "@tfm4/workflow-reservation@workspace:packages/workflows/reservation"
+  resolution: "@tfm4/worker-reservation@workspace:packages/apps/worker/reservation"
   dependencies:
     "@temporalio/activity": ^1.0.0
     "@temporalio/client": ^1.0.0

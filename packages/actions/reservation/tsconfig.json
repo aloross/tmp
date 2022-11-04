@@ -6,6 +6,6 @@
         "composite": true
     },
   "references": [
-    { "path": "../../workflows/reservation" }
+    { "path": "../../apps/worker/reservation" }
   ]
 }
