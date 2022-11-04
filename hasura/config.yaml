@@ -1,0 +1,9 @@
+version: 3
+endpoint: http://localhost:8081
+metadata_directory: metadata
+migrations_directory: migrations
+seeds_directory: seeds
+admin_secret: myadminsecretkey
+actions:
+  kind: synchronous
+  handler_webhook_baseurl: http://localhost:3000
