@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS public.reservation CASCADE;
+DROP TABLE IF EXISTS public.customer CASCADE;
+DROP TABLE IF EXISTS public.restaurant CASCADE;
+DROP TABLE IF EXISTS public.reservation_status_enum CASCADE;
+DROP TABLE IF EXISTS public.users CASCADE;
+DROP TABLE IF EXISTS public.accounts CASCADE;
+DROP TABLE IF EXISTS public.sessions CASCADE;
+DROP TABLE IF EXISTS public.verification_tokens CASCADE;
+DROP FUNCTION IF EXISTS public.set_current_timestamp_updated_at();
+DROP FUNCTION IF EXISTS public.set_slug_from_name();
+DROP FUNCTION IF EXISTS public.slugify(text);

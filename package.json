@@ -14,8 +14,7 @@
     "tsc": "exit 0",
     "lint": "eslint packages --ext .jsx,.js,.ts,.tsx",
     "codegen": "graphql-codegen --config codegen.ts -r dotenv/config",
-    "codegen:watch": "graphql-codegen --config codegen.ts -r dotenv/config",
-    "hasura": "hasura"
+    "codegen:watch": "graphql-codegen --config codegen.ts -r dotenv/config"
   },
   "dependencies": {
     "@graphql-codegen/typescript": "^2.8.1",
