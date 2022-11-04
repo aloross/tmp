@@ -9,3 +9,10 @@ array_relationships:
         table:
           name: reservation
           schema: public
+  - name: restaurant_users
+    using:
+      foreign_key_constraint_on:
+        column: restaurant_id
+        table:
+          name: restaurant_user
+          schema: public
