@@ -16,3 +16,5 @@ docker-compose up -d
 [temporal](http://localhost:8081)
 
 [hasura](http://localhost:8081)
+
+[cli hasura](https://hasura.io/docs/latest/hasura-cli/commands/hasura/)
