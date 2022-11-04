@@ -49,8 +49,16 @@ export const authOptions: NextAuthOptions = {
       }
     },
     session: async ({ session, token }) => {
+      const encodedToken = jsonwebtoken.sign(
+        token!,
+        process.env.NEXTAUTH_SECRET,
+        {
+          algorithm: 'HS256',
+        },
+      )
       if (session?.user) {
         session.user.id = token.sub
+        session.user.accessToken = encodedToken
       }
       return session
     },

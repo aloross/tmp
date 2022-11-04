@@ -21,7 +21,7 @@ function ApolloWrapper({ children }: { children: React.ReactNode }) {
   const { data } = useSession()
 
   return (
-    <ApolloProvider client={makeApolloClient(data?.user?.id)}>
+    <ApolloProvider client={makeApolloClient(data?.user?.accessToken)}>
       {children}
     </ApolloProvider>
   )

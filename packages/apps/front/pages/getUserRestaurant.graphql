@@ -4,3 +4,10 @@ query getUserRestaurant($userId: uuid!) {
     id
   }
 }
+
+query getAllRestaurants {
+  restaurant {
+    name
+    id
+  }
+}
