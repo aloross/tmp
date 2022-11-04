@@ -2,7 +2,7 @@ actions:
   - name: hello
     definition:
       kind: synchronous
-      handler: http://host.docker.internal:4000/reservation/create
+      handler: '{{HASURA_ACTION_URL}}/reservation/create'
       request_transform:
         body:
           action: transform

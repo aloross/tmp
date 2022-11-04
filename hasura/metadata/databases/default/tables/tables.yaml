@@ -3,6 +3,7 @@
 - "!include public_reservation.yaml"
 - "!include public_reservation_status_enum.yaml"
 - "!include public_restaurant.yaml"
+- "!include public_restaurant_user.yaml"
 - "!include public_sessions.yaml"
 - "!include public_users.yaml"
 - "!include public_verification_tokens.yaml"
