@@ -13,8 +13,8 @@
     "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo",
     "tsc": "exit 0",
     "lint": "eslint packages --ext .jsx,.js,.ts,.tsx",
-    "codegen": "graphql-codegen --config codegen.ts",
-    "codegen:watch": "graphql-codegen --config codegen.ts",
+    "codegen": "graphql-codegen --config codegen.ts -r dotenv/config",
+    "codegen:watch": "graphql-codegen --config codegen.ts -r dotenv/config",
     "hasura": "hasura"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "@types/react-dom": "18.0.7",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
+    "dotenv": "^16.0.3",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "eslint-config-prettier": "^8.5.0",
