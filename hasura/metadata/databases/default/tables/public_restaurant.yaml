@@ -16,3 +16,16 @@ array_relationships:
         table:
           name: restaurant_user
           schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - name
+        - slug
+        - created_at
+        - updated_at
+        - id
+      filter:
+        restaurant_users:
+          user_id:
+            _eq: X-Hasura-User-Id
