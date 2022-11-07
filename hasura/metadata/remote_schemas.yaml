@@ -4,3 +4,4 @@
     timeout_seconds: 60
     customization:
       root_fields_namespace: tfmApi
+    forward_client_headers: true
