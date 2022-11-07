@@ -6,6 +6,6 @@
         "composite": true
     },
   "references": [
-    { "path": "../../apps/worker/reservation" }
+    { "path": "../../apps/worker/example" }
   ]
 }

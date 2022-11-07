@@ -21,10 +21,10 @@ functions:
       - httpApi:
           path: /
           method: get
-  createReservation:
-    handler: src/reservation/create.createReservation
+  example:
+    handler: src/example.exampleAction
     events:
       - httpApi:
-          path: /reservation/create
+          path: /example
           method: post
 

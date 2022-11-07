@@ -3433,12 +3433,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tfm4/action-reservation@workspace:*, @tfm4/action-reservation@workspace:packages/actions/reservation":
+"@tfm4/action-example@workspace:*, @tfm4/action-example@workspace:packages/actions/example":
   version: 0.0.0-use.local
-  resolution: "@tfm4/action-reservation@workspace:packages/actions/reservation"
+  resolution: "@tfm4/action-example@workspace:packages/actions/example"
   dependencies:
     "@temporalio/client": ^1.0.0
-    "@tfm4/worker-reservation": "workspace:*"
+    "@tfm4/worker-example": "workspace:*"
     nanoid: 3.x
     typescript: 4.8.4
   languageName: unknown
@@ -3448,8 +3448,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
-    "@tfm4/action-reservation": "workspace:*"
-    "@tfm4/worker-reservation": "workspace:*"
+    "@tfm4/action-example": "workspace:*"
+    "@tfm4/worker-example": "workspace:*"
     "@types/aws-lambda": ^8.10.108
     esbuild: ^0.15.12
     serverless: ^3.23.0
@@ -3507,9 +3507,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/worker-reservation@workspace:*, @tfm4/worker-reservation@workspace:packages/apps/worker/reservation":
+"@tfm4/worker-example@workspace:*, @tfm4/worker-example@workspace:packages/apps/worker/example":
   version: 0.0.0-use.local
-  resolution: "@tfm4/worker-reservation@workspace:packages/apps/worker/reservation"
+  resolution: "@tfm4/worker-example@workspace:packages/apps/worker/example"
   dependencies:
     "@temporalio/activity": ^1.0.0
     "@temporalio/client": ^1.0.0

@@ -4,8 +4,8 @@
     { "path": "./packages/components" },
     { "path": "./packages/lib" },
     { "path": "./packages/generated" },
-    { "path": "./packages/apps/worker/reservation" },
-    { "path": "./packages/actions/reservation" }
+    { "path": "./packages/apps/worker/example" },
+    { "path": "./packages/actions/example" }
   ],
   "files": [],
   "include": [],
