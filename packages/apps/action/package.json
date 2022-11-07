@@ -5,8 +5,8 @@
     "dev": "sls offline start"
   },
   "dependencies": {
-    "@tfm4/action-reservation": "workspace:*",
-    "@tfm4/worker-reservation": "workspace:*",
+    "@tfm4/action-example": "workspace:*",
+    "@tfm4/worker-example": "workspace:*",
     "serverless": "^3.23.0",
     "zod": "^3.19.1"
   },

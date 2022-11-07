@@ -1,9 +1,9 @@
 import {Connection, WorkflowClient} from '@temporalio/client'
-import { example, ExampleParams } from '@tfm4/worker-reservation'
-import {nanoid} from 'nanoid'
+import { example, ExampleParams } from '@tfm4/worker-example'
+import { nanoid } from 'nanoid'
 
 
-export const createReservationAction = async ({ name }: ExampleParams) => {
+export const exampleActionStart = async ({ name }: ExampleParams) => {
   // Connect to the default Server location (localhost:7233)
   const connection = await Connection.connect()
   // In production, pass options to configure TLS and other settings:
