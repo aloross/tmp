@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@tfm4/action-example": "workspace:*",
+    "@tfm4/worker-availability": "workspace:*",
     "@tfm4/worker-example": "workspace:*",
     "serverless": "^3.23.0",
     "zod": "^3.19.1"
@@ -15,6 +16,7 @@
     "esbuild": "^0.15.12",
     "serverless-esbuild": "^1.33.0",
     "serverless-offline": "^11.2.3",
+    "serverless-plugin-typescript": "^2.1.4",
     "typescript": "4.8.4"
   }
 }

@@ -1,18 +1,20 @@
 {
-  "name": "@tfm4/worker-example",
+  "name": "@tfm4/worker-availability",
   "packageManager": "yarn@3.2.4",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "ts-node src/worker.ts",
-    "dev:wip": "nodemon src/worker.ts"
+    "start": "node dist/worker.js",
+    "dev": "nodemon dist/worker.js"
   },
   "dependencies": {
     "@temporalio/activity": "^1.0.0",
     "@temporalio/client": "^1.0.0",
     "@temporalio/worker": "^1.0.0",
     "@temporalio/workflow": "^1.0.0",
+    "@tfm4/config": "workspace:*",
+    "node-fetch": "^3.2.10",
     "zod": "^3.19.1"
   },
   "devDependencies": {
@@ -21,12 +23,8 @@
     "typescript": "4.8.4"
   },
   "nodemonConfig": {
-    "execMap": {
-      "ts": "ts-node"
-    },
-    "ext": "ts",
     "watch": [
-      "src"
+      "dist"
     ]
   }
 }

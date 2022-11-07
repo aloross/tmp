@@ -3449,12 +3449,14 @@ __metadata:
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
     "@tfm4/action-example": "workspace:*"
+    "@tfm4/worker-availability": "workspace:*"
     "@tfm4/worker-example": "workspace:*"
     "@types/aws-lambda": ^8.10.108
     esbuild: ^0.15.12
     serverless: ^3.23.0
     serverless-esbuild: ^1.33.0
     serverless-offline: ^11.2.3
+    serverless-plugin-typescript: ^2.1.4
     typescript: 4.8.4
     zod: ^3.19.1
   languageName: unknown
@@ -3463,6 +3465,14 @@ __metadata:
 "@tfm4/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@tfm4/components@workspace:packages/components"
+  dependencies:
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/config@workspace:*, @tfm4/config@workspace:packages/config":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/config@workspace:packages/config"
   dependencies:
     typescript: 4.8.4
   languageName: unknown
@@ -3504,6 +3514,23 @@ __metadata:
     "@apollo/client": ^3.7.0
     graphql: ^16.6.0
     typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/worker-availability@workspace:*, @tfm4/worker-availability@workspace:packages/apps/worker/availability":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/worker-availability@workspace:packages/apps/worker/availability"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/client": ^1.0.0
+    "@temporalio/worker": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
+    "@tfm4/config": "workspace:*"
+    node-fetch: ^3.2.10
+    nodemon: ^2.0.20
+    ts-node: ^10.9.1
+    typescript: 4.8.4
+    zod: ^3.19.1
   languageName: unknown
   linkType: soft
 
@@ -3617,6 +3644,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/glob@npm:^7.1.1":
+  version: 7.2.0
+  resolution: "@types/glob@npm:7.2.0"
+  dependencies:
+    "@types/minimatch": "*"
+    "@types/node": "*"
+  checksum: 6ae717fedfdfdad25f3d5a568323926c64f52ef35897bcac8aca8e19bc50c0bd84630bbd063e5d52078b2137d8e7d3c26eabebd1a2f03ff350fff8a91e79fc19
+  languageName: node
+  linkType: hard
+
 "@types/http-cache-semantics@npm:*":
   version: 4.0.1
   resolution: "@types/http-cache-semantics@npm:4.0.1"
@@ -3681,6 +3718,13 @@ __metadata:
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
   checksum: d16cde7240d834cf44ba1eaec49e78ae3180e724cd667052b194a372f350d024cba8dd3f37b0864931683dab09ca935d52f0c4c1687178af5ada9fc85b0635f4
+  languageName: node
+  linkType: hard
+
+"@types/minimatch@npm:*":
+  version: 5.1.2
+  resolution: "@types/minimatch@npm:5.1.2"
+  checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
   languageName: node
   linkType: hard
 
@@ -6738,7 +6782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -7095,6 +7139,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "fs-extra@npm:7.0.1"
+  dependencies:
+    graceful-fs: ^4.1.2
+    jsonfile: ^4.0.0
+    universalify: ^0.1.0
+  checksum: 141b9dccb23b66a66cefdd81f4cda959ff89282b1d721b98cea19ba08db3dcbe6f862f28841f3cf24bb299e0b7e6c42303908f65093cb7e201708e86ea5a8dcf
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^9.1.0":
   version: 9.1.0
   resolution: "fs-extra@npm:9.1.0"
@@ -7353,6 +7408,22 @@ __metadata:
   dependencies:
     type-fest: ^0.20.2
   checksum: fbaf4112e59b92c9f5575e85ce65e9e17c0b82711196ec5f58beb08599bbd92fd72703d6dfc9b080381fd35b644e1b11dcf25b38cc2341ec21df942594cbc8ce
+  languageName: node
+  linkType: hard
+
+"globby@npm:^10.0.2":
+  version: 10.0.2
+  resolution: "globby@npm:10.0.2"
+  dependencies:
+    "@types/glob": ^7.1.1
+    array-union: ^2.1.0
+    dir-glob: ^3.0.1
+    fast-glob: ^3.0.3
+    glob: ^7.1.3
+    ignore: ^5.1.1
+    merge2: ^1.2.3
+    slash: ^3.0.0
+  checksum: 167cd067f2cdc030db2ec43232a1e835fa06217577d545709dbf29fd21631b30ff8258705172069c855dc4d5766c3b2690834e35b936fbff01ad0329fb95a26f
   languageName: node
   linkType: hard
 
@@ -7680,7 +7751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.8, ignore@npm:^5.2.0":
+"ignore@npm:^5.1.1, ignore@npm:^5.1.8, ignore@npm:^5.2.0":
   version: 5.2.0
   resolution: "ignore@npm:5.2.0"
   checksum: 6b1f926792d614f64c6c83da3a1f9c83f6196c2839aa41e1e32dd7b8d174cef2e329d75caabb62cb61ce9dc432f75e67d07d122a037312db7caa73166a1bdb77
@@ -8362,6 +8433,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonfile@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "jsonfile@npm:4.0.0"
+  dependencies:
+    graceful-fs: ^4.1.6
+  dependenciesMeta:
+    graceful-fs:
+      optional: true
+  checksum: 6447d6224f0d31623eef9b51185af03ac328a7553efcee30fa423d98a9e276ca08db87d71e17f2310b0263fd3ffa6c2a90a6308367f661dc21580f9469897c9e
+  languageName: node
+  linkType: hard
+
 "jsonfile@npm:^6.0.1":
   version: 6.1.0
   resolution: "jsonfile@npm:6.1.0"
@@ -8914,7 +8997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"merge2@npm:^1.3.0, merge2@npm:^1.4.1":
+"merge2@npm:^1.2.3, merge2@npm:^1.3.0, merge2@npm:^1.4.1":
   version: 1.4.1
   resolution: "merge2@npm:1.4.1"
   checksum: 7268db63ed5169466540b6fb947aec313200bcf6d40c5ab722c22e242f651994619bcd85601602972d3c85bd2cc45a358a4c61937e9f11a061919a1da569b0c2
@@ -10827,6 +10910,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"serverless-plugin-typescript@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "serverless-plugin-typescript@npm:2.1.4"
+  dependencies:
+    fs-extra: ^7.0.1
+    globby: ^10.0.2
+    lodash: ^4.17.21
+  peerDependencies:
+    serverless: 2 || 3
+    typescript: ">=2.2.2"
+  checksum: de575273dc18fc6e224f4d812e5bed0cf6b4da1ee55495b17c02b421626833ce68caf68ada1f1f2516cfa6095af400661778716d848f5a42094adf36d93dc7ca
+  languageName: node
+  linkType: hard
+
 "serverless@npm:^3.23.0":
   version: 3.23.0
   resolution: "serverless@npm:3.23.0"
@@ -11927,6 +12024,13 @@ __metadata:
   dependencies:
     imurmurhash: ^0.1.4
   checksum: 49f8d915ba7f0101801b922062ee46b7953256c93ceca74303bd8e6413ae10aa7e8216556b54dc5382895e8221d04f1efaf75f945c2e4a515b4139f77aa6640c
+  languageName: node
+  linkType: hard
+
+"universalify@npm:^0.1.0":
+  version: 0.1.2
+  resolution: "universalify@npm:0.1.2"
+  checksum: 40cdc60f6e61070fe658ca36016a8f4ec216b29bf04a55dce14e3710cc84c7448538ef4dad3728d0bfe29975ccd7bfb5f414c45e7b78883567fb31b246f02dff
   languageName: node
   linkType: hard
 

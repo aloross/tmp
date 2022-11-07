@@ -52,3 +52,4 @@ dist
 .serverless
 .esbuild
 /schema.graphql
+/packages/apps/action/.build/

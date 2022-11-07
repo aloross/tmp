@@ -7,7 +7,7 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-esbuild
+  - serverless-plugin-typescript
 
 custom:
   serverless-offline:
@@ -28,3 +28,9 @@ functions:
           path: /example
           method: post
 
+  computeAvailability:
+    handler: src/availability/compute.computeAvailability
+    events:
+      - httpApi:
+          path: /availability/compute
+          method: post
