@@ -1,0 +1,14 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    color: var(--white);
+    background-color: var(--dark-grey);
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}

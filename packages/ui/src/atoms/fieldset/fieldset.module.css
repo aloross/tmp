@@ -1,0 +1,10 @@
+.fieldset {
+    border: none;
+    padding: 1rem 0;
+    min-inline-size: 0
+}
+
+.legend {
+    padding-top: 1rem;
+    font-weight: bold;
+}

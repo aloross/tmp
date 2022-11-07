@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "references": [
-    { "path": "./packages/components" },
     { "path": "./packages/lib" },
     { "path": "./packages/generated" },
     { "path": "./packages/apps/worker/example" },
