@@ -1,6 +1,6 @@
 import { Handler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import { ExampleSchema, ExampleParams } from '@tfm4/worker-example'
-import { exampleActionStart } from '@tfm4/action-example'
+import { exampleActionStart } from '@tfm4/temporal-client'
 import { ZodError } from 'zod'
 
 export const exampleAction: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {

@@ -3433,23 +3433,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tfm4/action-example@workspace:*, @tfm4/action-example@workspace:packages/actions/example":
-  version: 0.0.0-use.local
-  resolution: "@tfm4/action-example@workspace:packages/actions/example"
-  dependencies:
-    "@temporalio/client": ^1.0.0
-    "@tfm4/worker-example": "workspace:*"
-    nanoid: 3.x
-    typescript: 4.8.4
-  languageName: unknown
-  linkType: soft
-
 "@tfm4/action@workspace:packages/apps/action":
   version: 0.0.0-use.local
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
-    "@tfm4/action-example": "workspace:*"
-    "@tfm4/worker-availability": "workspace:*"
+    "@tfm4/temporal-client": "workspace:*"
+    "@tfm4/temporal-workflow": "workspace:*"
     "@tfm4/worker-example": "workspace:*"
     "@types/aws-lambda": ^8.10.108
     esbuild: ^0.15.12
@@ -3517,7 +3506,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/worker-availability@workspace:*, @tfm4/worker-availability@workspace:packages/apps/worker/availability":
+"@tfm4/temporal-client@workspace:*, @tfm4/temporal-client@workspace:packages/temporal/client":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/temporal-client@workspace:packages/temporal/client"
+  dependencies:
+    "@temporalio/client": ^1.0.0
+    "@tfm4/temporal-workflow": "workspace:*"
+    nanoid: 3.x
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/temporal-workflow@workspace:*, @tfm4/temporal-workflow@workspace:packages/temporal/workflow":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/temporal-workflow@workspace:packages/temporal/workflow"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/worker-availability@workspace:packages/apps/worker/availability":
   version: 0.0.0-use.local
   resolution: "@tfm4/worker-availability@workspace:packages/apps/worker/availability"
   dependencies:
@@ -3526,6 +3536,7 @@ __metadata:
     "@temporalio/worker": ^1.0.0
     "@temporalio/workflow": ^1.0.0
     "@tfm4/config": "workspace:*"
+    "@tfm4/temporal-workflow": "workspace:*"
     node-fetch: ^3.2.10
     nodemon: ^2.0.20
     ts-node: ^10.9.1

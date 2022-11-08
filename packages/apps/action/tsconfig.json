@@ -6,8 +6,5 @@
     "composite": true
   },
   "include": ["src/**/*.ts"],
-  "references": [
-    { "path": "../../actions/example" },
-    { "path" :  "../worker/example" }
-  ]
+  "references": []
 }
