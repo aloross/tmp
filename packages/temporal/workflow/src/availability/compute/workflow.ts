@@ -16,6 +16,7 @@ export const ComputeAvailabilitySchema = z.object({
 })
 export type ComputeAvailabilityParams = z.infer<typeof ComputeAvailabilitySchema>
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function computeAvailability({ restaurantID }: ComputeAvailabilityParams): Promise<any> {
   const availabilities = await getAvailabilities(restaurantID)
   const computedAvailabilities = await computeAvailabilities(availabilities)

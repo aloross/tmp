@@ -1,2 +1,5 @@
-export * from './example'
-export * from './computeAvailabilityClient'
+import * as availability from './availability'
+
+export {
+  availability,
+}

@@ -7,7 +7,6 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-plugin-typescript
 
 custom:
   serverless-offline:
@@ -16,20 +15,14 @@ custom:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: dist/handler.hello
     events:
       - httpApi:
           path: /
           method: get
-  example:
-    handler: src/example.exampleAction
-    events:
-      - httpApi:
-          path: /example
-          method: post
 
   computeAvailability:
-    handler: src/availability/compute.computeAvailability
+    handler: dist/availability/compute.computeAvailability
     events:
       - httpApi:
           path: /availability/compute

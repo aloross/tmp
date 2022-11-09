@@ -5,7 +5,7 @@
     { "path": "./packages/lib" },
     { "path": "./packages/config" },
     { "path": "./packages/generated" },
-    { "path": "./packages/apps/worker/example" },
+    { "path": "./packages/apps/action" },
     { "path": "./packages/apps/worker/availability" },
     { "path": "./packages/temporal/workflow" },
     { "path": "./packages/temporal/client" },
