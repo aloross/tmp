@@ -1,1 +1,1 @@
-export * from './compute/workflow'
+export * from './workflows'

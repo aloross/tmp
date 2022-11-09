@@ -1,1 +1,1 @@
-export * from './compute/activities'
+export * from './activities'
