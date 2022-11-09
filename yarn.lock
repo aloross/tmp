@@ -3423,8 +3423,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
+    "@tfm4/domain-availability": "workspace:*"
+    "@tfm4/domain-reservation": "workspace:*"
     "@tfm4/temporal-client": "workspace:*"
-    "@tfm4/temporal-workflow": "workspace:*"
     "@types/aws-lambda": ^8.10.108
     nodemon: ^2.0.20
     serverless: ^3.23.0
@@ -3446,6 +3447,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tfm4/config@workspace:packages/config"
   dependencies:
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/domain-availability@workspace:*, @tfm4/domain-availability@workspace:packages/domains/availability":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/domain-availability@workspace:packages/domains/availability"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/domain-reservation@workspace:*, @tfm4/domain-reservation@workspace:packages/domains/reservation":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/domain-reservation@workspace:packages/domains/reservation"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
     typescript: 4.8.4
   languageName: unknown
   linkType: soft
@@ -3489,23 +3510,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/temporal-client@workspace:*, @tfm4/temporal-client@workspace:packages/temporal/client":
+"@tfm4/temporal-client@workspace:*, @tfm4/temporal-client@workspace:packages/client":
   version: 0.0.0-use.local
-  resolution: "@tfm4/temporal-client@workspace:packages/temporal/client"
+  resolution: "@tfm4/temporal-client@workspace:packages/client"
   dependencies:
     "@temporalio/client": ^1.0.0
-    "@tfm4/temporal-workflow": "workspace:*"
+    "@tfm4/domain-availability": "workspace:*"
+    "@tfm4/domain-reservation": "workspace:*"
     nanoid: 3.x
-    typescript: 4.8.4
-  languageName: unknown
-  linkType: soft
-
-"@tfm4/temporal-workflow@workspace:*, @tfm4/temporal-workflow@workspace:packages/temporal/workflow":
-  version: 0.0.0-use.local
-  resolution: "@tfm4/temporal-workflow@workspace:packages/temporal/workflow"
-  dependencies:
-    "@temporalio/activity": ^1.0.0
-    "@temporalio/workflow": ^1.0.0
     typescript: 4.8.4
   languageName: unknown
   linkType: soft
@@ -3519,7 +3531,7 @@ __metadata:
     "@temporalio/worker": ^1.0.0
     "@temporalio/workflow": ^1.0.0
     "@tfm4/config": "workspace:*"
-    "@tfm4/temporal-workflow": "workspace:*"
+    "@tfm4/domain-availability": "workspace:*"
     node-fetch: ^3.2.10
     nodemon: ^2.0.20
     ts-node: ^10.9.1

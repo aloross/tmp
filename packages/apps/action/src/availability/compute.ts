@@ -1,7 +1,7 @@
 import { Handler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import { ZodError } from 'zod'
 import { availability } from '@tfm4/temporal-client'
-import { api, ComputeAvailabilityParams } from '@tfm4/temporal-workflow'
+import { ComputeAvailabilitySchema, ComputeAvailabilityParams } from '@tfm4/domain-availability'
 
 export const computeAvailability: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   // parse the request body
@@ -11,7 +11,7 @@ export const computeAvailability: Handler = async (event: APIGatewayProxyEvent):
 
   // verify the request payload
   try {
-    api.workflows.availability.ComputeAvailabilitySchema.parse(body.restaurantID)
+    ComputeAvailabilitySchema.parse(body.restaurantID)
   } catch (e) {
     return {
       statusCode: 400,
