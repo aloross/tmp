@@ -1553,20 +1553,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm@npm:0.15.13":
-  version: 0.15.13
-  resolution: "@esbuild/android-arm@npm:0.15.13"
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@esbuild/linux-loong64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "@esbuild/linux-loong64@npm:0.15.13"
-  conditions: os=linux & cpu=loong64
-  languageName: node
-  linkType: hard
-
 "@eslint/eslintrc@npm:^1.3.3":
   version: 1.3.3
   resolution: "@eslint/eslintrc@npm:1.3.3"
@@ -3433,27 +3419,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tfm4/action-example@workspace:*, @tfm4/action-example@workspace:packages/actions/example":
-  version: 0.0.0-use.local
-  resolution: "@tfm4/action-example@workspace:packages/actions/example"
-  dependencies:
-    "@temporalio/client": ^1.0.0
-    "@tfm4/worker-example": "workspace:*"
-    nanoid: 3.x
-    typescript: 4.8.4
-  languageName: unknown
-  linkType: soft
-
 "@tfm4/action@workspace:packages/apps/action":
   version: 0.0.0-use.local
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
-    "@tfm4/action-example": "workspace:*"
-    "@tfm4/worker-example": "workspace:*"
+    "@tfm4/temporal-client": "workspace:*"
+    "@tfm4/temporal-workflow": "workspace:*"
     "@types/aws-lambda": ^8.10.108
-    esbuild: ^0.15.12
+    nodemon: ^2.0.20
     serverless: ^3.23.0
-    serverless-esbuild: ^1.33.0
     serverless-offline: ^11.2.3
     typescript: 4.8.4
     zod: ^3.19.1
@@ -3463,6 +3437,14 @@ __metadata:
 "@tfm4/components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@tfm4/components@workspace:packages/components"
+  dependencies:
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/config@workspace:*, @tfm4/config@workspace:packages/config":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/config@workspace:packages/config"
   dependencies:
     typescript: 4.8.4
   languageName: unknown
@@ -3507,14 +3489,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/worker-example@workspace:*, @tfm4/worker-example@workspace:packages/apps/worker/example":
+"@tfm4/temporal-client@workspace:*, @tfm4/temporal-client@workspace:packages/temporal/client":
   version: 0.0.0-use.local
-  resolution: "@tfm4/worker-example@workspace:packages/apps/worker/example"
+  resolution: "@tfm4/temporal-client@workspace:packages/temporal/client"
+  dependencies:
+    "@temporalio/client": ^1.0.0
+    "@tfm4/temporal-workflow": "workspace:*"
+    nanoid: 3.x
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/temporal-workflow@workspace:*, @tfm4/temporal-workflow@workspace:packages/temporal/workflow":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/temporal-workflow@workspace:packages/temporal/workflow"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/worker-availability@workspace:packages/apps/worker/availability":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/worker-availability@workspace:packages/apps/worker/availability"
   dependencies:
     "@temporalio/activity": ^1.0.0
     "@temporalio/client": ^1.0.0
     "@temporalio/worker": ^1.0.0
     "@temporalio/workflow": ^1.0.0
+    "@tfm4/config": "workspace:*"
+    "@tfm4/temporal-workflow": "workspace:*"
+    node-fetch: ^3.2.10
     nodemon: ^2.0.20
     ts-node: ^10.9.1
     typescript: 4.8.4
@@ -4165,7 +4171,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-walk@npm:^8.1.1, acorn-walk@npm:^8.2.0":
+"acorn-walk@npm:^8.1.1":
   version: 8.2.0
   resolution: "acorn-walk@npm:8.2.0"
   checksum: 1715e76c01dd7b2d4ca472f9c58968516a4899378a63ad5b6c2d668bba8da21a71976c14ec5f5b75f887b6317c4ae0b897ab141c831d741dc76024d8745f1ad1
@@ -4322,7 +4328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"anymatch@npm:^3.1.2, anymatch@npm:~3.1.2":
+"anymatch@npm:~3.1.2":
   version: 3.1.2
   resolution: "anymatch@npm:3.1.2"
   dependencies:
@@ -4507,7 +4513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:^3.2.0, async@npm:^3.2.3":
+"async@npm:^3.2.3":
   version: 3.2.4
   resolution: "async@npm:3.2.4"
   checksum: 43d07459a4e1d09b84a20772414aa684ff4de085cbcaec6eea3c7a8f8150e8c62aa6cd4e699fe8ee93c3a5b324e777d34642531875a0817a35697522c1b02e89
@@ -4638,21 +4644,6 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
-  languageName: node
-  linkType: hard
-
-"bestzip@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "bestzip@npm:2.2.1"
-  dependencies:
-    archiver: ^5.3.0
-    async: ^3.2.0
-    glob: ^7.1.6
-    which: ^2.0.2
-    yargs: ^16.2.0
-  bin:
-    bestzip: bin/cli.js
-  checksum: 851074a2fb07302802b304ae0d9168b5b8ae6da6d8b97023f6182b0b82b0cffb4c5be713e0e24ce5375c66ec0fceb18bc29ddb627b4c74a33226586ccfd71b52
   languageName: node
   linkType: hard
 
@@ -6061,223 +6052,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-android-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-android-64@npm:0.15.13"
-  conditions: os=android & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-android-arm64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-android-arm64@npm:0.15.13"
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild-darwin-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-darwin-64@npm:0.15.13"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-darwin-arm64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-darwin-arm64@npm:0.15.13"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild-freebsd-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-freebsd-64@npm:0.15.13"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-freebsd-arm64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-freebsd-arm64@npm:0.15.13"
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-32@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-32@npm:0.15.13"
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-64@npm:0.15.13"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-arm64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-arm64@npm:0.15.13"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-arm@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-arm@npm:0.15.13"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-mips64le@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-mips64le@npm:0.15.13"
-  conditions: os=linux & cpu=mips64el
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-ppc64le@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-ppc64le@npm:0.15.13"
-  conditions: os=linux & cpu=ppc64
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-riscv64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-riscv64@npm:0.15.13"
-  conditions: os=linux & cpu=riscv64
-  languageName: node
-  linkType: hard
-
-"esbuild-linux-s390x@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-linux-s390x@npm:0.15.13"
-  conditions: os=linux & cpu=s390x
-  languageName: node
-  linkType: hard
-
-"esbuild-netbsd-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-netbsd-64@npm:0.15.13"
-  conditions: os=netbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-openbsd-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-openbsd-64@npm:0.15.13"
-  conditions: os=openbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-sunos-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-sunos-64@npm:0.15.13"
-  conditions: os=sunos & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-windows-32@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-windows-32@npm:0.15.13"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"esbuild-windows-64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-windows-64@npm:0.15.13"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"esbuild-windows-arm64@npm:0.15.13":
-  version: 0.15.13
-  resolution: "esbuild-windows-arm64@npm:0.15.13"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"esbuild@npm:^0.15.12":
-  version: 0.15.13
-  resolution: "esbuild@npm:0.15.13"
-  dependencies:
-    "@esbuild/android-arm": 0.15.13
-    "@esbuild/linux-loong64": 0.15.13
-    esbuild-android-64: 0.15.13
-    esbuild-android-arm64: 0.15.13
-    esbuild-darwin-64: 0.15.13
-    esbuild-darwin-arm64: 0.15.13
-    esbuild-freebsd-64: 0.15.13
-    esbuild-freebsd-arm64: 0.15.13
-    esbuild-linux-32: 0.15.13
-    esbuild-linux-64: 0.15.13
-    esbuild-linux-arm: 0.15.13
-    esbuild-linux-arm64: 0.15.13
-    esbuild-linux-mips64le: 0.15.13
-    esbuild-linux-ppc64le: 0.15.13
-    esbuild-linux-riscv64: 0.15.13
-    esbuild-linux-s390x: 0.15.13
-    esbuild-netbsd-64: 0.15.13
-    esbuild-openbsd-64: 0.15.13
-    esbuild-sunos-64: 0.15.13
-    esbuild-windows-32: 0.15.13
-    esbuild-windows-64: 0.15.13
-    esbuild-windows-arm64: 0.15.13
-  dependenciesMeta:
-    "@esbuild/android-arm":
-      optional: true
-    "@esbuild/linux-loong64":
-      optional: true
-    esbuild-android-64:
-      optional: true
-    esbuild-android-arm64:
-      optional: true
-    esbuild-darwin-64:
-      optional: true
-    esbuild-darwin-arm64:
-      optional: true
-    esbuild-freebsd-64:
-      optional: true
-    esbuild-freebsd-arm64:
-      optional: true
-    esbuild-linux-32:
-      optional: true
-    esbuild-linux-64:
-      optional: true
-    esbuild-linux-arm:
-      optional: true
-    esbuild-linux-arm64:
-      optional: true
-    esbuild-linux-mips64le:
-      optional: true
-    esbuild-linux-ppc64le:
-      optional: true
-    esbuild-linux-riscv64:
-      optional: true
-    esbuild-linux-s390x:
-      optional: true
-    esbuild-netbsd-64:
-      optional: true
-    esbuild-openbsd-64:
-      optional: true
-    esbuild-sunos-64:
-      optional: true
-    esbuild-windows-32:
-      optional: true
-    esbuild-windows-64:
-      optional: true
-    esbuild-windows-arm64:
-      optional: true
-  bin:
-    esbuild: bin/esbuild
-  checksum: ef5f339fae7e2abc4ec5484d4b301efdf40f580e043cbf8a66e19d6c91df82368a810abec61fd5e5db226f0c354f49c36616c9ea04c5412a142a050c10239bf7
-  languageName: node
-  linkType: hard
-
 "escalade@npm:^3.1.1":
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
@@ -7313,7 +7087,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.5, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.2.0":
+"glob@npm:^7.0.5, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.0":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -7356,7 +7130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^11.0.3, globby@npm:^11.0.4, globby@npm:^11.1.0":
+"globby@npm:^11.0.3, globby@npm:^11.1.0":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -10282,13 +10056,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:^0.28.0":
-  version: 0.28.0
-  resolution: "ramda@npm:0.28.0"
-  checksum: 44ea6e5010bba70151b6a92d8114a91915e8b5a16105cce65fae58c9d7386b812c429645e35f21141d7087568550ce383bc10ee1a65cdec951f4b69ea457e6a4
-  languageName: node
-  linkType: hard
-
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -10769,27 +10536,6 @@ __metadata:
   dependencies:
     randombytes: ^2.1.0
   checksum: 56f90b562a1bdc92e55afb3e657c6397c01a902c588c0fe3d4c490efdcc97dcd2a3074ba12df9e94630f33a5ce5b76a74784a7041294628a6f4306e0ec84bf93
-  languageName: node
-  linkType: hard
-
-"serverless-esbuild@npm:^1.33.0":
-  version: 1.33.1
-  resolution: "serverless-esbuild@npm:1.33.1"
-  dependencies:
-    acorn: ^8.8.0
-    acorn-walk: ^8.2.0
-    anymatch: ^3.1.2
-    archiver: ^5.3.1
-    bestzip: ^2.2.1
-    chokidar: ^3.5.3
-    fs-extra: ^10.1.0
-    globby: ^11.0.4
-    p-map: ^4.0.0
-    ramda: ^0.28.0
-    semver: ^7.3.7
-  peerDependencies:
-    esbuild: ">=0.8 <0.16"
-  checksum: 8350b5579deb37b8359632415f46826611312583203d3bd2291557ffc6aa87690b468952c424d421bff5e37560550addd0b375beaf8bfad3767f1f8c055b5385
   languageName: node
   linkType: hard
 

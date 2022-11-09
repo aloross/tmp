@@ -1,0 +1,14 @@
+{
+  "name": "@tfm4/temporal-workflow",
+  "packageManager": "yarn@3.2.4",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@temporalio/activity": "^1.0.0",
+    "@temporalio/workflow": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "4.8.4"
+  }
+}

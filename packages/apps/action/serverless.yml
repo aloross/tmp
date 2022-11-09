@@ -7,7 +7,6 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-esbuild
 
 custom:
   serverless-offline:
@@ -16,15 +15,15 @@ custom:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: dist/handler.hello
     events:
       - httpApi:
           path: /
           method: get
-  example:
-    handler: src/example.exampleAction
+
+  computeAvailability:
+    handler: dist/availability/compute.computeAvailability
     events:
       - httpApi:
-          path: /example
+          path: /availability/compute
           method: post
-
