@@ -1,12 +1,12 @@
 import { Worker } from '@temporalio/worker'
 import { taskQueue } from '@tfm4/config'
-import { api } from '@tfm4/temporal-workflow'
+import * as activities from '@tfm4/domain-availability/dist/all-activities'
 
 async function run() {
-  const workflowsPath = require.resolve('@tfm4/temporal-workflow/dist/availability/all-workflows.js')
+  const workflowsPath = require.resolve('@tfm4/domain-availability/dist/all-workflows.js')
   const worker = await Worker.create({
     workflowsPath,
-    activities: api.activities.availability,
+    activities,
     taskQueue: taskQueue.AVAILABILITY,
     identity: taskQueue.AVAILABILITY,
   })

@@ -1,9 +1,10 @@
 {
-  "name": "@tfm4/temporal-workflow",
+  "name": "@tfm4/domain-availability",
   "packageManager": "yarn@3.2.4",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [],
   "dependencies": {
     "@temporalio/activity": "^1.0.0",
     "@temporalio/workflow": "^1.0.0"

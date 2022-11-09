@@ -1,7 +1,7 @@
 import { Connection, WorkflowClient } from '@temporalio/client'
 import { nanoid } from 'nanoid'
 import { taskQueue } from '@tfm4/config'
-import { api, ComputeAvailabilityParams } from '@tfm4/temporal-workflow'
+import { computeAvailability, ComputeAvailabilityParams } from '@tfm4/domain-availability'
 
 export const computeAvailabilityClient = async (restaurantID: ComputeAvailabilityParams) => {
   const connection = await Connection.connect()
@@ -9,7 +9,7 @@ export const computeAvailabilityClient = async (restaurantID: ComputeAvailabilit
     connection,
   })
 
-  const handle = await client.start(api.workflows.availability.computeAvailability, {
+  const handle = await client.start(computeAvailability, {
     args: [restaurantID],
     taskQueue: taskQueue.AVAILABILITY,
     workflowId: 'workflow-availability-' + nanoid(),
