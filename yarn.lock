@@ -1751,6 +1751,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-codegen/typescript-graphql-request@npm:^4.5.8":
+  version: 4.5.8
+  resolution: "@graphql-codegen/typescript-graphql-request@npm:4.5.8"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.7.2
+    "@graphql-codegen/visitor-plugin-common": 2.13.1
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-request: ^3.4.0 || ^4.0.0 || ^5.0.0
+    graphql-tag: ^2.0.0
+  checksum: d8bc9a30a3bee10e5a3b9b5137c829a4e846ff8ba452688cdb2459a42aaeec0129bcb43143f976814598b73e70134a07b0637001f952e60e4ca7759027ea9f83
+  languageName: node
+  linkType: hard
+
 "@graphql-codegen/typescript-operations@npm:^2.5.5":
   version: 2.5.5
   resolution: "@graphql-codegen/typescript-operations@npm:2.5.5"
@@ -3467,6 +3483,8 @@ __metadata:
   dependencies:
     "@temporalio/activity": ^1.0.0
     "@temporalio/workflow": ^1.0.0
+    "@tfm4/generated-back": "workspace:*"
+    date-fns: ^2.29.3
     typescript: 4.8.4
   languageName: unknown
   linkType: soft
@@ -3492,9 +3510,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tfm4/generated@workspace:*, @tfm4/generated@workspace:packages/generated":
+"@tfm4/generated-back@workspace:*, @tfm4/generated-back@workspace:packages/generated/back":
   version: 0.0.0-use.local
-  resolution: "@tfm4/generated@workspace:packages/generated"
+  resolution: "@tfm4/generated-back@workspace:packages/generated/back"
+  dependencies:
+    graphql: ^16.6.0
+    graphql-request: ^5.0.0
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/generated@workspace:*, @tfm4/generated@workspace:packages/generated/front":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/generated@workspace:packages/generated/front"
   dependencies:
     typescript: 4.8.4
   languageName: unknown
@@ -3532,6 +3560,24 @@ __metadata:
     "@temporalio/workflow": ^1.0.0
     "@tfm4/config": "workspace:*"
     "@tfm4/domain-availability": "workspace:*"
+    node-fetch: ^3.2.10
+    nodemon: ^2.0.20
+    ts-node: ^10.9.1
+    typescript: 4.8.4
+    zod: ^3.19.1
+  languageName: unknown
+  linkType: soft
+
+"@tfm4/worker-reservation@workspace:packages/apps/worker/reservation":
+  version: 0.0.0-use.local
+  resolution: "@tfm4/worker-reservation@workspace:packages/apps/worker/reservation"
+  dependencies:
+    "@temporalio/activity": ^1.0.0
+    "@temporalio/client": ^1.0.0
+    "@temporalio/worker": ^1.0.0
+    "@temporalio/workflow": ^1.0.0
+    "@tfm4/config": "workspace:*"
+    "@tfm4/domain-reservation": "workspace:*"
     node-fetch: ^3.2.10
     nodemon: ^2.0.20
     ts-node: ^10.9.1
@@ -5560,6 +5606,13 @@ __metadata:
   version: 2.1.0
   resolution: "dataloader@npm:2.1.0"
   checksum: bbd43496c41697766f8611f60ed3bae437b450985499140b9603a2447c10d45975d3a0661caaebaa9750bc1bc9fd154676a314423294916c8b8ca1a59a08d139
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.29.3":
+  version: 2.29.3
+  resolution: "date-fns@npm:2.29.3"
+  checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484
   languageName: node
   linkType: hard
 
@@ -11306,6 +11359,7 @@ __metadata:
     "@graphql-codegen/cli": 2.13.8
     "@graphql-codegen/client-preset": 1.1.1
     "@graphql-codegen/typescript": ^2.8.1
+    "@graphql-codegen/typescript-graphql-request": ^4.5.8
     "@graphql-codegen/typescript-operations": ^2.5.6
     "@graphql-codegen/typescript-react-apollo": ^3.3.6
     "@types/node": 18.11.5

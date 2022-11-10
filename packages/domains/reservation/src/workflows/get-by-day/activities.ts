@@ -1,9 +1,8 @@
 import { proxyActivities } from '@temporalio/workflow'
-import * as activities from '../../activities'
+import * as activities from '../../activities/get-reservation'
 
 export const {
-  activityA,
-  activityB,
+ getReservation
 } = proxyActivities<typeof activities>({
   startToCloseTimeout: '1 minute',
 })
