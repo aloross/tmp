@@ -1,8 +1,7 @@
 import { z } from 'zod'
 import { getReservation } from './activities'
 
-// DD-MM-YYYY
-const dateRegex = /^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}$/
+const dateRegex = /^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/
 
 export const GetReservationsByDaySchema = z.object({
   restaurantId: z.string(),

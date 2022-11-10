@@ -18,8 +18,5 @@ export const getReservationByDay = async (params: GetReservationsByDayParams) =>
     workflowId: 'workflow-reservation-' + nanoid(),
   })
 
-  const result = await handle.result()
-  console.log(result) // Hello, Temporal!
-
-  return result
+  return handle.result()
 }
