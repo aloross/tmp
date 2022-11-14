@@ -4,11 +4,7 @@ import { ZodError } from 'zod'
 import { CreateReservationSchema, CreateReservationParams } from '@tfm4/domain-reservation'
 
 export const handler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  const body = event.body ? JSON.parse(event.body) : {}
-
-  console.log({
-    body,
-  })
+  const body: CreateReservationParams = event.body ? JSON.parse(event.body) : {}
 
   try {
     CreateReservationSchema.parse(body)
@@ -20,7 +16,7 @@ export const handler: Handler = async (event: APIGatewayProxyEvent): Promise<API
   }
 
   try {
-    const reservationId = await reservation.createReservation(body as unknown as CreateReservationParams)
+    const reservationId = await reservation.createReservation(body)
 
     return {
       statusCode: 200,
