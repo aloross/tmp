@@ -11,7 +11,7 @@
     "dev:front": "yarn workspace @tfm4/front dev",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
-    "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo",
+    "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo && rimraf packages/**/node_modules",
     "tsc": "exit 0",
     "test": "jest",
     "test:watch": "jest --watch",
