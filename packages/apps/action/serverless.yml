@@ -7,7 +7,6 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-esbuild
 
 custom:
   serverless-offline:
@@ -16,15 +15,31 @@ custom:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: dist/handler.hello
     events:
       - httpApi:
           path: /
           method: get
-  example:
-    handler: src/example.exampleAction
+
+  # AVAILABILITY
+  computeAvailability:
+    handler: dist/availability/compute.computeAvailability
     events:
       - httpApi:
-          path: /example
+          path: /availability/compute
           method: post
 
+ # RESERVATION
+  getReservationByDay:
+    handler: dist/reservation/get-by-day.getReservationByDay
+    events:
+      - httpApi:
+          path: restaurant/{restaurantId}/reservation/{day}
+          method: get
+
+  create:
+    handler: dist/reservation/create.handler
+    events:
+      - httpApi:
+          path: /reservation/create
+          method: post

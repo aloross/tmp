@@ -11,14 +11,25 @@ const config: CodegenConfig = {
       },
     },
   },
-  documents: 'packages/apps/front/pages/**/*.graphql',
   generates: {
-    'packages/generated/src/index.ts': {
+    'packages/generated/front/src/index.ts': {
+      documents: 'packages/apps/front/pages/**/*.graphql',
       plugins: [
         'typescript',
         'typescript-operations',
         'typescript-react-apollo',
       ],
+    },
+    'packages/generated/back/src/document.ts': {
+      documents: 'packages/domains/**/*.graphql',
+      plugins: [
+        'typescript',
+        'typescript-operations',
+        'typescript-graphql-request',
+      ],
+      config: {
+        // rawRequest: true,
+      },
     },
   },
 }
