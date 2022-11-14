@@ -22,7 +22,6 @@ describe('get-reservation.ts', () => {
         restaurantId,
         date: isoDate,
       })
-
     })
   })
 })

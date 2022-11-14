@@ -7,7 +7,7 @@ export interface PersistReservationParams {
   restaurantId: Restaurant['id'];
   customerId: Customer['id'];
   date: Reservation['date'];
-  status: Reservation_Status_Enum_Enum;
+  status: Reservation['status'];
 }
 
 export const persistReservation = async (params: PersistReservationParams) => {
