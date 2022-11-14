@@ -21,9 +21,25 @@ functions:
           path: /
           method: get
 
+  # AVAILABILITY
   computeAvailability:
     handler: dist/availability/compute.computeAvailability
     events:
       - httpApi:
           path: /availability/compute
+          method: post
+
+ # RESERVATION
+  getReservationByDay:
+    handler: dist/reservation/get-by-day.getReservationByDay
+    events:
+      - httpApi:
+          path: restaurant/{restaurantId}/reservation/{day}
+          method: get
+
+  create:
+    handler: dist/reservation/create.handler
+    events:
+      - httpApi:
+          path: /reservation/create
           method: post

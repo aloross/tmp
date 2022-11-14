@@ -1,11 +1,28 @@
-import { sleep } from '@temporalio/workflow'
-import { activityA, activityB } from './activities'
+import { executeChild } from '@temporalio/workflow'
+import { z } from 'zod'
+import { Reservation_Status_Enum_Enum } from '@tfm4/generated'
+import { taskQueue } from '@tfm4/config'
+import { computeAvailability } from '@tfm4/domain-availability'
+import { persistReservation } from './activities'
+import { nanoid } from 'nanoid'
 
-export async function WorkflowA(name: string): Promise<string> {
+export const CreateReservationSchema = z.object({
+  restaurantId: z.string(),
+  customerId: z.string(),
+  date: z.string(),
+})
 
-  const res1 = await activityA(name)
-  await sleep(100)
-  const res2 = await activityB(name)
+export type CreateReservationParams = z.infer<typeof CreateReservationSchema>
 
-  return `A: ${res1} | B: ${res2}`
+export async function CreateReservation(params: CreateReservationParams) {
+  const reservationId = await persistReservation({
+    ...params,
+    status: Reservation_Status_Enum_Enum.Confirm,
+  })
+
+  const result = await executeChild(computeAvailability, {
+    args: [params.restaurantId],
+    taskQueue: taskQueue.AVAILABILITY,
+    workflowId: 'workflow-availability-' + nanoid(),
+  })
 }

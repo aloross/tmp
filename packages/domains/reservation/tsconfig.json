@@ -4,5 +4,11 @@
         "rootDir": "src",
         "outDir": "dist",
         "composite": true
-    }
+    },
+  "references": [
+    { "path": "../../generated/back" },
+    { "path": "../../helper" },
+    { "path": "../../config" },
+    { "path": "../availability" }
+  ]
 }

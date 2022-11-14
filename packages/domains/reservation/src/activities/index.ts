@@ -1,2 +1,2 @@
-export * from './activitiesA'
-export * from './activitiesB'
+export * from './get-reservation'
+export * from './persist-reservation'
