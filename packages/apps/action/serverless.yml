@@ -36,3 +36,10 @@ functions:
       - httpApi:
           path: restaurant/{restaurantId}/reservation/{day}
           method: get
+
+  create:
+    handler: dist/reservation/create.handler
+    events:
+      - httpApi:
+          path: /reservation/create
+          method: post

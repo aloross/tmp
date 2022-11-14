@@ -1,0 +1,14 @@
+mutation PersistReservation(
+    $date: timestamptz!,
+    $restaurant_id: uuid!,
+    $status: reservation_status_enum_enum!,
+    $customer_id: uuid!) {
+    insert_reservation_one(object: {
+        date: $date,
+        restaurant_id: $restaurant_id,
+        customer_id: $customer_id,
+        status: $status
+    }) {
+        id
+    }
+}

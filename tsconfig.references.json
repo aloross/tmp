@@ -3,6 +3,7 @@
   "references": [
     { "path": "./packages/components" },
     { "path": "./packages/lib" },
+    { "path": "./packages/helper" },
     { "path": "./packages/config" },
     { "path": "./packages/generated/front" },
     { "path": "./packages/generated/back" },

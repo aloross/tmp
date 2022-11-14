@@ -5,6 +5,7 @@
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn run codegen:watch & yarn workspaces foreach -p -v -i run dev",
+    "dev:all": "yarn run tsc:watch & yarn run dev",
     "dev:worker": "yarn workspace @tfm4/worker-reservation dev",
     "dev:action": "yarn workspace @tfm4/action dev",
     "dev:front": "yarn workspace @tfm4/front dev",
