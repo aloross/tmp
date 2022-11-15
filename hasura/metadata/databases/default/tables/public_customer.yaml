@@ -1,3 +1,10 @@
 table:
   name: customer
   schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - data
+      filter: {}

@@ -1,6 +1,18 @@
 type Mutation {
+  createReservation(
+    args: CreateReservationInput!
+  ): String
+}
+
+type Mutation {
   hello(
     name: String!
   ): String
+}
+
+input CreateReservationInput {
+  restaurantId: String!
+  customerId: String!
+  date: String!
 }
 
