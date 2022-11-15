@@ -1,6 +1,6 @@
-import Input from '@tfm4/ui/dist/atoms/input'
-import Button from '@tfm4/ui/dist/atoms/button'
-import Fieldset from '@tfm4/ui/dist/atoms/fieldset'
+import { Input } from '@tfm4/ui/dist/atoms/input'
+import { Button } from '@tfm4/ui/dist/atoms/button'
+import { Fieldset } from '@tfm4/ui/dist/atoms/fieldset'
 import { RadioGroup, RadioGroupItem } from '@tfm4/ui/dist/atoms/radio-group'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './create-reservation-form.module.css'
@@ -13,7 +13,7 @@ export type CreateBookingInputs = {
 
 export type OnSubmit = SubmitHandler<CreateBookingInputs>
 
-export default function CreateReservationForm({
+export function CreateReservationForm({
   onSubmit,
   loading,
 }: {

@@ -1,14 +1,14 @@
 import { ComponentProps, ElementRef, forwardRef, ReactNode } from 'react'
 import cx from 'classnames'
 import styles from './input.module.css'
-import Label from '../label'
+import { Label } from '../label'
 
 type InputProps = ComponentProps<'input'> & {
   label?: ReactNode
   error?: { message?: string; type: string }
 }
 
-const Input = forwardRef<ElementRef<'input'>, InputProps>(
+export const Input = forwardRef<ElementRef<'input'>, InputProps>(
   ({ label, error, ...props }, forwardedRef) => {
     return (
       <div>
@@ -31,5 +31,3 @@ const Input = forwardRef<ElementRef<'input'>, InputProps>(
   },
 )
 Input.displayName = 'Input'
-
-export default Input

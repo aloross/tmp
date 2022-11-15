@@ -1,7 +1,7 @@
 import { ComponentProps, ElementRef, forwardRef, ReactNode } from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import styles from './radio-group.module.css'
-import Label from '../label'
+import { Label } from '../label'
 
 const RadioGroup = forwardRef<
   ElementRef<typeof RadioGroupPrimitive.Root>,

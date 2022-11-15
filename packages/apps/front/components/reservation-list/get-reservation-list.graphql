@@ -1,0 +1,14 @@
+subscription reservationList($restaurantId: uuid!) {
+  reservation(where: { restaurant_id: { _eq: $restaurantId } }) {
+    id
+    date
+    status
+    customer {
+      id
+    }
+    restaurant {
+      id
+      name
+    }
+  }
+}

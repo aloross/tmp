@@ -1,10 +1,8 @@
-import Label from './label'
+import { Label } from './label'
 
-const config = {
+export const config = {
   title: 'Atoms/Label',
   component: Label,
 }
-
-export default config
 
 export const Default = () => <Label>Form label</Label>

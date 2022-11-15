@@ -1,0 +1,3 @@
+mutation createReservation($args: CreateReservationInput!) {
+  createReservation(args: $args)
+}

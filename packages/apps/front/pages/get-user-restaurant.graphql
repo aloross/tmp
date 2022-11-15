@@ -11,10 +11,3 @@ query getAllRestaurants {
     id
   }
 }
-
-subscription reservationList($restaurantId: uuid!) {
-  reservation(where: { restaurant_id: { _eq: $restaurantId } }) {
-    id
-    status
-  }
-}
