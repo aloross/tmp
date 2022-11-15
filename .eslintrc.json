@@ -18,6 +18,15 @@
     "semi": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "@next/next/no-html-link-for-pages": ["error", "packages/apps/front/app/"],
-    "import/no-unresolved": ["error", { "ignore": ["@tfm4/generated.*"] }]
-  }
+    "import/no-unresolved": ["error", { "ignore": ["@tfm4/generated.*"] }],
+    "import/no-default-export": "error"
+  },
+  "overrides": [
+    {
+      "files": ["packages/apps/front/pages/**/*"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }
