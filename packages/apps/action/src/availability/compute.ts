@@ -4,4 +4,4 @@ import { ComputeAvailabilitySchema, ComputeAvailabilityParams } from '@tfm4/doma
 import { createHandler } from '../create-handler'
 
 
-export const computeAvailability: Handler = createHandler<ComputeAvailabilityParams>(ComputeAvailabilitySchema, availability.computeAvailabilityClient)
+export const computeAvailability: Handler = createHandler<ComputeAvailabilityParams>(ComputeAvailabilitySchema, availability.computeAvailabilityClient, false)
