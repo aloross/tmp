@@ -1,0 +1,31 @@
+.input {
+    height: 3rem;
+    border-radius: 1.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+
+.input:disabled {
+    background-color: var(--disabled);
+}
+
+.inputError {
+    outline: 2px solid var(--error);
+    outline-offset: -3px;
+}
+
+.errorMessage {
+    color: var(--error);
+}
+
+.label {
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: bold;
+}
+
+input[type="number" i] {
+    padding: 0 0.5rem;
+}

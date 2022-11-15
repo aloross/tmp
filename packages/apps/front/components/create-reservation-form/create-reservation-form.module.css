@@ -1,0 +1,22 @@
+.container {
+    padding: 1rem;
+    max-width: 22rem;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: xx-large;
+    text-align: center;
+}
+
+.requiredHelper {
+    display: block;
+    margin-top: 5rem;
+    font-size: small;
+    text-align: center;
+}
+
+.submitWrapper {
+    text-align: center;
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.form {
+    flex: 1;
+    padding: 2rem;
+    border-right: 1px solid var(--white);
+}
+
+.list {
+    flex: 0 0 20rem;
+    padding: 2rem;
+}

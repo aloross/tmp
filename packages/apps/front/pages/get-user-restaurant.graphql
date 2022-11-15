@@ -1,0 +1,20 @@
+query getUserRestaurant($userId: uuid!) {
+  restaurant(where: { restaurant_users: { user: { id: { _eq: $userId } } } }) {
+    name
+    id
+  }
+}
+
+query getAllRestaurants {
+  restaurant {
+    name
+    id
+  }
+}
+
+subscription reservationList($restaurantId: uuid!) {
+  reservation(where: { restaurant_id: { _eq: $restaurantId } }) {
+    id
+    status
+  }
+}

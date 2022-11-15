@@ -1,0 +1,41 @@
+.root {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 0;
+}
+
+.indicator {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.item {
+    all: unset;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    position: relative;
+}
+
+.label {
+    padding-left: 0.5rem;
+}
+
+.item:hover {
+    background-color: var(--primary);
+}
+
+.itemWrapper {
+    flex: 0 0 25%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}

@@ -3,6 +3,10 @@ import type { AppProps } from 'next/app'
 import type { Session } from 'next-auth'
 import { ApolloProvider } from '@apollo/client'
 import { makeApolloClient } from '@tfm4/lib'
+import '@tfm4/ui/src/tokens.css'
+import '@tfm4/ui/src/global.css'
+import '../styles/tokens.css'
+import '../styles/global.css'
 
 export default function App({
   Component,
