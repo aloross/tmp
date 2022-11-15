@@ -7,7 +7,8 @@
   "files": [],
   "dependencies": {
     "@temporalio/activity": "^1.0.0",
-    "@temporalio/workflow": "^1.0.0"
+    "@temporalio/workflow": "^1.0.0",
+    "nanoid": "^4.0.0"
   },
   "devDependencies": {
     "typescript": "4.8.4"

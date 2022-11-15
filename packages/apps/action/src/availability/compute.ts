@@ -1,36 +1,7 @@
-import { Handler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
-import { ZodError } from 'zod'
+import { Handler } from 'aws-lambda'
 import { availability } from '@tfm4/temporal-client'
 import { ComputeAvailabilitySchema, ComputeAvailabilityParams } from '@tfm4/domain-availability'
+import { createHandler } from '../create-handler'
 
-export const computeAvailability: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  // parse the request body
-  const body: { restaurantID: ComputeAvailabilityParams } = event?.body
-    ? JSON.parse(event.body)
-    : { restaurantID: undefined }
 
-  // verify the request payload
-  try {
-    ComputeAvailabilitySchema.parse(body.restaurantID)
-  } catch (e) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ issues: (e as ZodError).issues }),
-    }
-  }
-
-  // start a workflow process
-  try {
-    const res = availability.computeAvailabilityClient(body.restaurantID)
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify(res),
-    }
-  } catch (e) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify(false),
-    }
-  }
-}
+export const computeAvailability: Handler = createHandler<ComputeAvailabilityParams>(ComputeAvailabilitySchema, availability.computeAvailabilityClient)
