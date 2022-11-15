@@ -13,7 +13,7 @@ const config: CodegenConfig = {
   },
   generates: {
     'packages/generated/front/src/index.ts': {
-      documents: 'packages/apps/front/pages/**/*.graphql',
+      documents: 'packages/apps/front/**/*.graphql',
       plugins: [
         'typescript',
         'typescript-operations',

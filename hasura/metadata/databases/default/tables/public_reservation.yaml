@@ -8,3 +8,19 @@ object_relationships:
   - name: restaurant
     using:
       foreign_key_constraint_on: restaurant_id
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - created_at
+        - updated_at
+        - date
+        - status
+        - customer_id
+        - restaurant_id
+      filter:
+        restaurant:
+          restaurant_users:
+            user_id:
+              _eq: X-Hasura-User-Id
