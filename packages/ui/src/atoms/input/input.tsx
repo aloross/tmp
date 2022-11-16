@@ -9,11 +9,15 @@ type InputProps = ComponentProps<'input'> & {
 }
 
 export const Input = forwardRef<ElementRef<'input'>, InputProps>(
-  ({ label, error, ...props }, forwardedRef) => {
+  ({ label, required, error, ...props }, forwardedRef) => {
     return (
       <div>
         {label && (
-          <Label className={styles.label} htmlFor={props.id}>
+          <Label
+            className={styles.label}
+            htmlFor={props.id}
+            required={required}
+          >
             {label}
           </Label>
         )}
