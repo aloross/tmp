@@ -10,8 +10,7 @@
     "@tfm4/config": "workspace:*",
     "@tfm4/domain-availability": "workspace:*",
     "@tfm4/generated-back": "workspace:*",
-    "date-fns": "^2.29.3",
-    "nanoid": "^4.0.0"
+    "date-fns": "^2.29.3"
   },
   "devDependencies": {
     "typescript": "4.8.4"

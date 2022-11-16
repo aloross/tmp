@@ -7,6 +7,7 @@
   "dependencies": {
     "@tfm4/domain-availability": "workspace:*",
     "@tfm4/domain-reservation": "workspace:*",
+    "@tfm4/helper": "workspace:*",
     "@tfm4/temporal-client": "workspace:*",
     "serverless": "^3.23.0",
     "zod": "^3.19.1"

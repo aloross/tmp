@@ -4,7 +4,6 @@ import { Reservation_Status_Enum_Enum } from '@tfm4/generated'
 import { taskQueue } from '@tfm4/config'
 import { computeAvailability } from '@tfm4/domain-availability'
 import { persistReservation } from './activities'
-import { nanoid } from 'nanoid'
 
 export const CreateReservationSchema = z.object({
   restaurantId: z.string(),
@@ -20,9 +19,11 @@ export async function CreateReservation(params: CreateReservationParams) {
     status: Reservation_Status_Enum_Enum.Confirm,
   })
 
-  const result = await executeChild(computeAvailability, {
+  executeChild(computeAvailability, {
     args: [params.restaurantId],
     taskQueue: taskQueue.AVAILABILITY,
-    workflowId: 'workflow-availability-' + nanoid(),
+    workflowId: 'workflow-availability',
   })
+
+  return reservationId
 }
