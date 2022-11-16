@@ -4,4 +4,4 @@ import { CreateReservationSchema, CreateReservationParams } from '@tfm4/domain-r
 import { createHandler } from '../create-handler'
 
 
-export const handler: Handler = createHandler<CreateReservationParams>(CreateReservationSchema, reservation.createReservation)
+export const handler: Handler = createHandler<CreateReservationParams>(CreateReservationSchema, reservation.createReservation, false)
