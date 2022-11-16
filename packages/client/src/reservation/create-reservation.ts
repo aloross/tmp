@@ -3,5 +3,5 @@ import { taskQueue } from '@tfm4/config'
 import { createClient } from '../create-client'
 
 
-export const createReservation = async (params: CreateReservationParams) => createClient(taskQueue.RESERVATION, CreateReservation, params)
+export const createReservation = async (params: CreateReservationParams, requestId: string) => createClient(taskQueue.RESERVATION, CreateReservation, params, requestId)
 

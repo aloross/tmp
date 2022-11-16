@@ -10,6 +10,7 @@ import { onError } from '@apollo/client/link/error'
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { createClient } from 'graphql-ws'
 import { getMainDefinition } from '@apollo/client/utilities'
+import { v4 as uuidv4 } from 'uuid'
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:8081/v1/graphql',
@@ -21,14 +22,20 @@ const makeAuthLink = (authToken?: string) =>
     const { getContext, setContext } = operation
     const context = getContext()
 
+    const requestId = uuidv4()
+
     setContext({
       ...context,
       headers: authToken
         ? {
             authorization,
+          'request-id': requestId,
             ...context.headers,
           }
-        : context.headers,
+        : {
+          'request-id': requestId,
+          ...context.headers,
+        },
     })
 
     return forward(operation)
