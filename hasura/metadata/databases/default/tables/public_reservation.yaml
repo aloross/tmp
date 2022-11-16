@@ -12,13 +12,15 @@ select_permissions:
   - role: user
     permission:
       columns:
-        - id
         - created_at
-        - updated_at
-        - date
-        - status
         - customer_id
+        - date
+        - id
+        - pax
         - restaurant_id
+        - status
+        - timeslot
+        - updated_at
       filter:
         restaurant:
           restaurant_users:

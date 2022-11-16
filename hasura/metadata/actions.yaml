@@ -10,7 +10,9 @@ actions:
             {
               "restaurantId": {{$body.input.args.restaurantId}},
               "customerId": {{$body.input.args.customerId}},
-              "date": {{$body.input.args.date}}
+              "date": {{$body.input.args.date}},
+              "timeslot": {{$body.input.args.timeslot}},
+              "pax": {{$body.input.args.pax}}
             }
         template_engine: Kriti
         version: 2
@@ -34,5 +36,6 @@ custom_types:
   enums: []
   input_objects:
     - name: CreateReservationInput
-  objects: []
+  objects:
+    - name: CreateReservationOutput
   scalars: []
