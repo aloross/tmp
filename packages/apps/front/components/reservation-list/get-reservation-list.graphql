@@ -2,6 +2,8 @@ subscription reservationList($restaurantId: uuid!) {
   reservation(where: { restaurant_id: { _eq: $restaurantId } }) {
     id
     date
+    pax
+    timeslot
     status
     customer {
       id

@@ -9,6 +9,8 @@ export const CreateReservationSchema = z.object({
   restaurantId: z.string(),
   customerId: z.string(),
   date: z.string(),
+  timeslot: z.string(),
+  pax: z.number(),
 })
 
 export type CreateReservationParams = z.infer<typeof CreateReservationSchema>

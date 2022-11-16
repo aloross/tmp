@@ -2,10 +2,13 @@ import { Input } from '@tfm4/ui/dist/atoms/input'
 import { Button } from '@tfm4/ui/dist/atoms/button'
 import { Fieldset } from '@tfm4/ui/dist/atoms/fieldset'
 import { RadioGroup, RadioGroupItem } from '@tfm4/ui/dist/atoms/radio-group'
+import { Select, SelectItem } from '@tfm4/ui/dist/atoms/select'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './create-reservation-form.module.css'
+import { useGetAllCustomersQuery } from '@tfm4/generated'
 
 export type CreateBookingInputs = {
+  customer: string
   pax: number
   date: string
   timeslot: string
@@ -26,22 +29,43 @@ export function CreateReservationForm({
     handleSubmit,
     formState: { errors },
   } = useForm<CreateBookingInputs>()
+  const { data, loading: customerLoading } = useGetAllCustomersQuery()
+
+  const { name } = register('customer', {
+    required: 'This field is required',
+  })
+
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>Create a reservation</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Fieldset>
+          <Select
+            disabled={loading || customerLoading}
+            required
+            id="customer"
+            label="Customer"
+            error={errors.customer}
+            placeholder="Select a customer..."
+            name={name}
+            onValueChange={(value) => setValue('customer', value)}
+          >
+            {data?.customer.map(({ id }) => (
+              <SelectItem key={id} value={id}>
+                {id}
+              </SelectItem>
+            ))}
+          </Select>
+        </Fieldset>
+        <Fieldset>
           <Input
             disabled={loading}
+            required
             id="date"
             type="date"
             error={errors.date}
             defaultValue={new Date().toISOString().split('T')[0]}
-            label={
-              <>
-                Date<span aria-label="required">*</span>
-              </>
-            }
+            label="Date"
             {...register('date', {
               required: 'This field is required',
             })}
@@ -99,12 +123,12 @@ export function CreateReservationForm({
             id="pax"
             type="number"
             error={errors.pax}
-            label={
-              <>
-                Guests<span aria-label="required">*</span>
-              </>
-            }
-            {...register('pax', { required: 'This field is required' })}
+            label="Guests"
+            required
+            {...register('pax', {
+              required: 'This field is required',
+              valueAsNumber: true,
+            })}
           />
         </Fieldset>
         <div className={styles.submitWrapper}>
