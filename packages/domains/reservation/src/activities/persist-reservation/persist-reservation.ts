@@ -12,12 +12,12 @@ export interface PersistReservationParams {
 
 export const persistReservation = async (params: PersistReservationParams) => {
 
-  const reservationId = await PersistReservation({
+  const reservation = await PersistReservation({
     date: params.date,
     status: params.status,
     restaurant_id: params.restaurantId,
     customer_id: params.customerId,
   })
 
-  return reservationId
+  return reservation.insert_reservation_one?.id
 }
