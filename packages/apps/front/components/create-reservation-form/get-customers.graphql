@@ -1,0 +1,5 @@
+query getAllCustomers {
+  customer {
+    id
+  }
+}

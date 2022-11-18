@@ -25,9 +25,11 @@ export default function CreateBooking() {
       variables: {
         args: {
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
-          customerId: 'becbe285-63b3-44a0-903c-f16c0c187ed4',
+          customerId: data.customer,
           restaurantId: restaurantUser?.restaurant[0]?.id,
           date: data.date,
+          timeslot: data.timeslot,
+          pax: data.pax,
         },
       },
     })

@@ -1,3 +1,5 @@
 mutation createReservation($args: CreateReservationInput!) {
-  createReservation(args: $args)
+  createReservation(args: $args) {
+    res
+  }
 }
