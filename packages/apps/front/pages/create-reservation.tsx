@@ -24,7 +24,6 @@ export default function CreateBooking() {
     createReservationMutation({
       variables: {
         args: {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
           customerId: data.customer,
           restaurantId: restaurantUser?.restaurant[0]?.id,
           date: data.date,

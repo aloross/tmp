@@ -1,5 +1,7 @@
-subscription reservationList($restaurantId: uuid!) {
-  reservation(where: { restaurant_id: { _eq: $restaurantId } }) {
+subscription reservationList($restaurantId: uuid!, $date: date!) {
+  reservation(
+    where: { restaurant_id: { _eq: $restaurantId }, date: { _eq: $date } }
+  ) {
     id
     date
     pax

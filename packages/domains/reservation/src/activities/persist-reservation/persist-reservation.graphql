@@ -1,5 +1,5 @@
 mutation PersistReservation(
-  $date: timestamptz!
+  $date: date!
   $timeslot: String!
   $pax: Int!
   $restaurant_id: uuid!
