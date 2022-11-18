@@ -1,8 +1,13 @@
 import { persistReservation } from './persist-reservation'
 import { Reservation_Status_Enum_Enum } from '@tfm4/generated-back'
 
+const testId = 'test-id'
 
-const persistReservationMock = jest.fn()
+const persistReservationMock = jest.fn().mockImplementation(() => ({
+  insert_reservation_one: {
+    id: testId,
+  },
+}))
 
 jest.mock('@tfm4/generated-back', () => ({
   sdk: {
@@ -17,13 +22,14 @@ describe('persistReservation', () => {
     const date = '2022-11-22T23:00:00.000Z'
     const status = 'CONFIRM' as Reservation_Status_Enum_Enum
 
-    await persistReservation({
+    const res = await persistReservation({
       restaurantId,
       customerId,
       date,
       status,
     })
 
+    expect(res).toBe(testId)
     expect(persistReservationMock).toHaveBeenCalledTimes(1)
     expect(persistReservationMock).toHaveBeenCalledWith({
       restaurant_id: restaurantId,

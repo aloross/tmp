@@ -6569,10 +6569,12 @@ __metadata:
     "@tfm4/helper": "workspace:*"
     "@tfm4/temporal-client": "workspace:*"
     "@types/aws-lambda": ^8.10.108
+    "@types/uuid": ^8.3.4
     nodemon: ^2.0.20
     serverless: ^3.23.0
     serverless-offline: ^11.2.3
     typescript: 4.8.4
+    uuid: ^9.0.0
     zod: ^3.19.1
   languageName: unknown
   linkType: soft
@@ -6604,8 +6606,10 @@ __metadata:
     "@tfm4/config": "workspace:*"
     "@tfm4/domain-availability": "workspace:*"
     "@tfm4/generated-back": "workspace:*"
+    "@types/uuid": ^8.3.4
     date-fns: ^2.29.3
     typescript: 4.8.4
+    uuid: ^9.0.0
   languageName: unknown
   linkType: soft
 
@@ -6665,6 +6669,7 @@ __metadata:
   resolution: "@tfm4/lib@workspace:packages/lib"
   dependencies:
     "@apollo/client": ^3.7.0
+    "@types/uuid": ^8.3.4
     graphql: ^16.6.0
     typescript: 4.8.4
   languageName: unknown
@@ -7266,6 +7271,13 @@ __metadata:
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^8.3.4":
+  version: 8.3.4
+  resolution: "@types/uuid@npm:8.3.4"
+  checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
   languageName: node
   linkType: hard
 

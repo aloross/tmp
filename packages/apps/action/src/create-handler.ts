@@ -1,11 +1,14 @@
 import { Schema, ZodError } from 'zod'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
+import { v4 as uuidv4 } from 'uuid'
 import { log } from '@tfm4/helper'
 
-export const createHandler = <T>(schema: Schema, action: (body: T) => Promise<unknown> | void, fireAndForget = true) => {
+export const createHandler = <T>(schema: Schema, action: (body: T, requestId: string) => Promise<unknown> | void, fireAndForget = true) => {
   const logger = log.getLogger('actions')
 
   return async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    const headers = event.headers
+    const requestId = headers['request-id'] || uuidv4()
     const body: T = event.body ? JSON.parse(event.body) : {}
 
     try {
@@ -18,8 +21,14 @@ export const createHandler = <T>(schema: Schema, action: (body: T) => Promise<un
     }
 
     try {
+      logger.info({
+        action: action.name,
+        body,
+        requestId,
+      })
+
       if (fireAndForget) {
-        action(body)
+        action(body, requestId)
 
         return {
           statusCode: 200,
@@ -27,14 +36,18 @@ export const createHandler = <T>(schema: Schema, action: (body: T) => Promise<un
         }
       }
 
-      const result = await action(body)
+      const result = await action(body, requestId)
 
       return {
         statusCode: 200,
         body: JSON.stringify(result),
       }
     } catch (e) {
-      logger.error(`action: ${action.name}`, e)
+      logger.error({
+        action: action.name,
+        body,
+        error: (e as Error).message,
+      })
       return {
         statusCode: 400,
         body: JSON.stringify({}),

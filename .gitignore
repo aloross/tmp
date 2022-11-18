@@ -53,3 +53,4 @@ dist
 .esbuild
 /schema.graphql
 /packages/apps/action/.build/
+/logs
