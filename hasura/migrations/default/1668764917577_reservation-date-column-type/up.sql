@@ -1,0 +1,1 @@
+ALTER TABLE reservation ALTER COLUMN date TYPE date;

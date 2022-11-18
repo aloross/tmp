@@ -15,16 +15,22 @@ export const CreateReservationSchema = z.object({
 
 export type CreateReservationParams = z.infer<typeof CreateReservationSchema>
 
-export async function CreateReservation(params: CreateReservationParams, requestId: string) {
+export async function CreateReservation(
+  params: CreateReservationParams,
+  requestId: string,
+) {
   const reservationId = await persistReservation({
     ...params,
-    status: Reservation_Status_Enum_Enum.Confirm,
+    status:
+      params.pax > 4
+        ? Reservation_Status_Enum_Enum.Request
+        : Reservation_Status_Enum_Enum.Confirm,
   })
 
   executeChild(computeAvailability, {
     args: [params.restaurantId],
     taskQueue: taskQueue.AVAILABILITY,
-    workflowId:  `${taskQueue.AVAILABILITY}-requestId-${requestId}`,
+    workflowId: `${taskQueue.AVAILABILITY}-requestId-${requestId}`,
   })
 
   return reservationId

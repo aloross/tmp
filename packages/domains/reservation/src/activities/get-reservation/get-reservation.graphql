@@ -1,10 +1,11 @@
-query GetReservation($restaurantId: uuid!, $date: timestamptz!) {
-    reservation(where: {date: {_eq: $date}, restaurant_id: { _eq: $restaurantId }}) {
-        id
-        date
-        restaurant_id
-        created_at
-        updated_at
-    }
+query GetReservation($restaurantId: uuid!, $date: date!) {
+  reservation(
+    where: { date: { _eq: $date }, restaurant_id: { _eq: $restaurantId } }
+  ) {
+    id
+    date
+    restaurant_id
+    created_at
+    updated_at
+  }
 }
-
