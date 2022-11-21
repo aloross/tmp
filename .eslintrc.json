@@ -23,7 +23,10 @@
   },
   "overrides": [
     {
-      "files": ["packages/apps/front/pages/**/*"],
+      "files": [
+        "packages/apps/front/pages/**/*",
+        "!packages/apps/front/pages/**/*.stories.tsx?"
+      ],
       "rules": {
         "import/no-default-export": "off"
       }

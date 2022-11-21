@@ -28,7 +28,7 @@ export async function CreateReservation(
   })
 
   executeChild(computeAvailability, {
-    args: [params.restaurantId],
+    args: [params.restaurantId, requestId],
     taskQueue: taskQueue.AVAILABILITY,
     workflowId: `${taskQueue.AVAILABILITY}-requestId-${requestId}`,
   })

@@ -24,12 +24,14 @@
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.3.0",
+    "date-fns": "^2.29.3",
     "glob": "^8.0.3",
     "rollup": "^3.2.5",
     "rollup-plugin-postcss": "^4.0.2",
     "typescript": "4.8.4"
   },
   "dependencies": {
+    "@radix-ui/react-hover-card": "^1.0.2",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-label": "^2.0.0",
     "@radix-ui/react-radio-group": "^1.1.0",

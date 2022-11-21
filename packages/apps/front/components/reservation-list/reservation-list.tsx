@@ -4,6 +4,7 @@ import {
   useGetUserRestaurantQuery,
   useReservationListSubscription,
 } from '@tfm4/generated'
+import { Card } from '@tfm4/ui/dist/molecules/card'
 import { Input } from '@tfm4/ui/dist/atoms/input'
 
 export function ReservationList() {
@@ -31,7 +32,18 @@ export function ReservationList() {
         label="Date"
         onChange={(e) => setDate(e.currentTarget.value)}
       />
-      <pre>{JSON.stringify(data?.reservation, null, 2)}</pre>
+      {data?.reservation.map((value)=> {
+        return (
+          <Card
+            key={value.id}
+            date={value.date}
+            guest={2}
+          >
+        <pre>
+         {JSON.stringify(value, null, 2)}
+        </pre>
+          </Card>)
+      })}
     </section>
   )
 }
