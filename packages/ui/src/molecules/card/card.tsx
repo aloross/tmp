@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import * as HoverCard from '@radix-ui/react-hover-card'
-import format from 'date-fns/format'
+import { format } from 'date-fns'
 
 import styles from './card.module.css'
 

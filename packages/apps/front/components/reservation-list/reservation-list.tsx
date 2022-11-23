@@ -32,6 +32,11 @@ export function ReservationList() {
         label="Date"
         onChange={(e) => setDate(e.currentTarget.value)}
       />
+
+      {data?.reservation && data?.reservation.length <= 0 && (
+        <p>No reservation for {date}</p>
+      )}
+
       {data?.reservation.map((value)=> {
         return (
           <Card
@@ -44,6 +49,7 @@ export function ReservationList() {
         </pre>
           </Card>)
       })}
+
     </section>
   )
 }
