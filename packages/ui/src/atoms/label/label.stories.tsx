@@ -1,6 +1,6 @@
 import { Label } from './label'
 
-export const config = {
+export default {
   title: 'Atoms/Label',
   component: Label,
 }

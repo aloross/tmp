@@ -3,7 +3,7 @@
     color: var(--white);
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 1.5rem;
+    border-radius: var(--border-radius);
     height: 3rem;
     min-width: 10rem;
     font-size: x-large;

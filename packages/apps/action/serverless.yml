@@ -30,12 +30,12 @@ functions:
           method: post
 
  # RESERVATION
-  getReservationByDay:
-    handler: dist/reservation/get-by-day.getReservationByDay
-    events:
-      - httpApi:
-          path: restaurant/{restaurantId}/reservation/{day}
-          method: get
+#  getReservationByDay:
+#    handler: dist/reservation/get-by-day.getReservationByDay
+#    events:
+#      - httpApi:
+#          path: restaurant/{restaurantId}/reservation/{day}
+#          method: get
 
   create:
     handler: dist/reservation/create.handler
