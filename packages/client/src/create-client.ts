@@ -1,9 +1,26 @@
 import { Connection, WorkflowClient } from '@temporalio/client'
 import { Workflow } from '@temporalio/common'
 import { log } from '@tfm4/helper'
+import { Schema } from 'zod'
 
-export const createClient = async <T>(taskQueue: string, workflow: string | Workflow, params: T, requestId: string) => {
+export interface CreateClientParams<T> {
+  schema: Schema
+  params: T
+  taskQueue: string
+  workflow: string | Workflow
+  requestId: string
+}
+
+export const createClient = async <T>({
+  params,
+  schema,
+  taskQueue,
+  workflow,
+  requestId,
+}: CreateClientParams<T>) => {
   const logger = log.getLogger('client')
+
+  schema.parse(params)
 
   const connection = await Connection.connect()
   const client = new WorkflowClient({
