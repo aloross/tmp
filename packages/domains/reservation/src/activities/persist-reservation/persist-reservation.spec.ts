@@ -21,12 +21,16 @@ describe('persistReservation', () => {
     const customerId = 'abc-123-azerty'
     const date = '2022-11-22T23:00:00.000Z'
     const status = 'CONFIRM' as Reservation_Status_Enum_Enum
+    const timeslot = '1130'
+    const pax = 3
 
     const res = await persistReservation({
       restaurantId,
       customerId,
       date,
       status,
+      timeslot,
+      pax,
     })
 
     expect(res).toBe(testId)
@@ -36,6 +40,8 @@ describe('persistReservation', () => {
       customer_id: customerId,
       date,
       status,
+      timeslot,
+      pax,
     })
   })
 })

@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@temporalio/client": "^1.0.0",
+    "@temporalio/client": "^1.4.4",
     "@tfm4/domain-availability": "workspace:*",
     "@tfm4/domain-reservation": "workspace:*",
     "nanoid": "3.x"
