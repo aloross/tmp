@@ -9,8 +9,6 @@
   "include": ["src/**/*.ts"],
   "references": [
     { "path":  "../../helper"},
-    { "path":  "../../client"},
-    { "path":  "../../domains/availability"},
-    { "path":  "../../domains/reservation"},
+    { "path":  "../../client"}
   ]
 }

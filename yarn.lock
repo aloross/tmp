@@ -6669,8 +6669,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tfm4/action@workspace:packages/apps/action"
   dependencies:
-    "@tfm4/domain-availability": "workspace:*"
-    "@tfm4/domain-reservation": "workspace:*"
     "@tfm4/helper": "workspace:*"
     "@tfm4/temporal-client": "workspace:*"
     "@types/aws-lambda": ^8.10.108
