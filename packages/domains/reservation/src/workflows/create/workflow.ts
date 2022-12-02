@@ -1,4 +1,4 @@
-import { executeChild } from '@temporalio/workflow'
+import { ParentClosePolicy, startChild } from '@temporalio/workflow'
 import { z } from 'zod'
 import { Reservation_Status_Enum_Enum } from '@tfm4/generated'
 import { taskQueue } from '@tfm4/config'
@@ -27,11 +27,16 @@ export async function CreateReservation(
         : Reservation_Status_Enum_Enum.Confirm,
   })
 
-  executeChild(computeAvailability, {
+  const childHandle = await startChild(computeAvailability, {
     args: [params.restaurantId, requestId],
     taskQueue: taskQueue.AVAILABILITY,
     workflowId: `${taskQueue.AVAILABILITY}-requestId-${requestId}`,
+    parentClosePolicy: ParentClosePolicy.PARENT_CLOSE_POLICY_ABANDON,
   })
+
+  // you can use childHandle to signal or get result here
+  // await childHandle.signal('anySignal');
+  // const result = childHandle.result();
 
   return reservationId
 }
