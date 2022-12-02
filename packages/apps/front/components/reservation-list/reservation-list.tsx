@@ -42,7 +42,7 @@ export function ReservationList() {
           <Card
             key={value.id}
             date={value.date}
-            guest={2}
+            guest={value.pax}
           >
         <pre>
          {JSON.stringify(value, null, 2)}
