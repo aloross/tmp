@@ -1,7 +1,7 @@
 import {
   useCreateReservationMutation,
   useGetUserRestaurantQuery,
-} from '@tfm4/generated'
+} from '@tmp/generated'
 import { ReservationList } from '../components/reservation-list'
 import { useSession } from 'next-auth/react'
 import {

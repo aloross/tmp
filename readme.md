@@ -1,11 +1,12 @@
-# TFM 4
+# TMP
 
-## Install 
+Temporal Management PoC
+
+## Install
 
 ```shell
 cp .env.sample .env
 ```
-
 
 ```shell
 docker-compose up -d

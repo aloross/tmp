@@ -1,12 +1,12 @@
 {
-  "name": "@tfm4/action",
+  "name": "@tmp/action",
   "version": "0.0.1",
   "scripts": {
     "dev": "nodemon"
   },
   "dependencies": {
-    "@tfm4/helper": "workspace:*",
-    "@tfm4/temporal-client": "workspace:*",
+    "@tmp/helper": "workspace:*",
+    "@tmp/temporal-client": "workspace:*",
     "serverless": "^3.23.0",
     "uuid": "^9.0.0",
     "zod": "^3.19.1"

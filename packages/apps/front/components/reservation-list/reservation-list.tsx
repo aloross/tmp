@@ -3,9 +3,9 @@ import { useSession } from 'next-auth/react'
 import {
   useGetUserRestaurantQuery,
   useReservationListSubscription,
-} from '@tfm4/generated'
-import { Card } from '@tfm4/ui/dist/molecules/card'
-import { Input } from '@tfm4/ui/dist/atoms/input'
+} from '@tmp/generated'
+import { Card } from '@tmp/ui/dist/molecules/card'
+import { Input } from '@tmp/ui/dist/atoms/input'
 
 export function ReservationList() {
   const [date, setDate] = useState(new Date().toISOString().split('T')[0])
@@ -37,19 +37,13 @@ export function ReservationList() {
         <p>No reservation for {date}</p>
       )}
 
-      {data?.reservation.map((value)=> {
+      {data?.reservation.map((value) => {
         return (
-          <Card
-            key={value.id}
-            date={value.date}
-            guest={value.pax}
-          >
-        <pre>
-         {JSON.stringify(value, null, 2)}
-        </pre>
-          </Card>)
+          <Card key={value.id} date={value.date} guest={value.pax}>
+            <pre>{JSON.stringify(value, null, 2)}</pre>
+          </Card>
+        )
       })}
-
     </section>
   )
 }

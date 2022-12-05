@@ -1,4 +1,4 @@
-service: tfm4-worker
+service: tmp-worker
 frameworkVersion: '3'
 
 provider:
@@ -29,13 +29,13 @@ functions:
           path: /availability/compute
           method: post
 
- # RESERVATION
-#  getReservationByDay:
-#    handler: dist/reservation/get-by-day.getReservationByDay
-#    events:
-#      - httpApi:
-#          path: restaurant/{restaurantId}/reservation/{day}
-#          method: get
+  # RESERVATION
+  #  getReservationByDay:
+  #    handler: dist/reservation/get-by-day.getReservationByDay
+  #    events:
+  #      - httpApi:
+  #          path: restaurant/{restaurantId}/reservation/{day}
+  #          method: get
 
   create:
     handler: dist/reservation/create.handler

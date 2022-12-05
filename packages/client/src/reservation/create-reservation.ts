@@ -1,9 +1,15 @@
-import { CreateReservation, CreateReservationSchema, CreateReservationParams } from '@tfm4/domain-reservation'
-import { taskQueue } from '@tfm4/config'
+import {
+  CreateReservation,
+  CreateReservationSchema,
+  CreateReservationParams,
+} from '@tmp/domain-reservation'
+import { taskQueue } from '@tmp/config'
 import { createClient } from '../create-client'
 
-
-export const createReservation = async (params: CreateReservationParams, requestId: string) =>
+export const createReservation = async (
+  params: CreateReservationParams,
+  requestId: string,
+) =>
   createClient<CreateReservationParams>({
     schema: CreateReservationSchema,
     params,

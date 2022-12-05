@@ -1,5 +1,5 @@
 import { persistReservation } from './persist-reservation'
-import { Reservation_Status_Enum_Enum } from '@tfm4/generated-back'
+import { Reservation_Status_Enum_Enum } from '@tmp/generated-back'
 
 const testId = 'test-id'
 
@@ -9,7 +9,7 @@ const persistReservationMock = jest.fn().mockImplementation(() => ({
   },
 }))
 
-jest.mock('@tfm4/generated-back', () => ({
+jest.mock('@tmp/generated-back', () => ({
   sdk: {
     PersistReservation: (args: unknown) => persistReservationMock(args),
   },

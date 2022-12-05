@@ -1,7 +1,7 @@
 import {
   useGetUserRestaurantQuery,
   useGetAllRestaurantsQuery,
-} from '@tfm4/generated'
+} from '@tmp/generated'
 import { useSession } from 'next-auth/react'
 import { Layout } from '../components/layout'
 

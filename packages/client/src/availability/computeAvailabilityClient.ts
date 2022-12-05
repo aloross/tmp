@@ -1,8 +1,15 @@
-import { taskQueue } from '@tfm4/config'
-import { computeAvailability, ComputeAvailabilitySchema, ComputeAvailabilityParams } from '@tfm4/domain-availability'
+import { taskQueue } from '@tmp/config'
+import {
+  computeAvailability,
+  ComputeAvailabilitySchema,
+  ComputeAvailabilityParams,
+} from '@tmp/domain-availability'
 import { createClient } from '../create-client'
 
-export const computeAvailabilityClient = async (params: ComputeAvailabilityParams, requestId: string) =>
+export const computeAvailabilityClient = async (
+  params: ComputeAvailabilityParams,
+  requestId: string,
+) =>
   createClient<ComputeAvailabilityParams>({
     taskQueue: taskQueue.AVAILABILITY,
     workflow: computeAvailability,
@@ -10,4 +17,3 @@ export const computeAvailabilityClient = async (params: ComputeAvailabilityParam
     params,
     requestId,
   })
-
