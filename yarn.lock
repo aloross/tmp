@@ -6723,6 +6723,8 @@ __metadata:
   dependencies:
     "@temporalio/activity": ^1.4.4
     "@temporalio/workflow": ^1.4.4
+    "@tmp/generated-back": "workspace:*"
+    date-fns: ^2.29.3
     typescript: 4.8.4
   languageName: unknown
   linkType: soft

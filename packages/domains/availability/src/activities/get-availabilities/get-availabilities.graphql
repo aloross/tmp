@@ -1,0 +1,18 @@
+query GetAvailabilities(
+  $restaurantId: uuid!
+  $fromDate: date!
+  $toDate: date!
+) {
+  availability(
+    where: {
+      date: { _gte: $fromDate, _lte: $toDate }
+      restaurant_id: { _eq: $restaurantId }
+    }
+  ) {
+    id
+    restaurant_id
+    date
+    configuration
+    availabilities
+  }
+}

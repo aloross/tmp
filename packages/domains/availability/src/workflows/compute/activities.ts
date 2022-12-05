@@ -3,6 +3,7 @@ import type * as activities from '../../activities'
 
 export const {
   getAvailabilities,
+  getReservations,
   computeAvailabilities,
   persistAvailabilities,
 } = proxyActivities<typeof activities>({

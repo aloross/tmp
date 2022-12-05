@@ -1,5 +1,4 @@
-import { sdk } from '@tmp/generated-back'
-import { Restaurant, Reservation, Customer } from '@tmp/generated'
+import { sdk, Restaurant, Reservation, Customer } from '@tmp/generated-back'
 
 const { PersistReservation } = sdk
 

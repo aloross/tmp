@@ -1,0 +1,13 @@
+mutation UpsertAvailabilities($inputs: [availability_insert_input!]!) {
+  insert_availability(
+    objects: $inputs
+    on_conflict: {
+      constraint: availability_pkey
+      update_columns: availabilities
+    }
+  ) {
+    returning {
+      id
+    }
+  }
+}

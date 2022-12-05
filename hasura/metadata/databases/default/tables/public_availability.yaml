@@ -1,0 +1,3 @@
+table:
+  name: availability
+  schema: public
