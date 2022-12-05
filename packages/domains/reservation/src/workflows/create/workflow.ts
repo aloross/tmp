@@ -1,8 +1,8 @@
-import { ParentClosePolicy, startChild } from '@temporalio/workflow'
+import { ParentClosePolicy, startChild, executeChild } from '@temporalio/workflow'
 import { z } from 'zod'
 import { Reservation_Status_Enum_Enum } from '@tmp/generated-back'
 import { taskQueue } from '@tmp/config'
-import { computeAvailability } from '@tmp/domain-availability'
+import { computeAvailability, CheckTimeslot } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
 
 export const CreateReservationSchema = z.object({
@@ -19,6 +19,22 @@ export async function CreateReservation(
   params: CreateReservationParams,
   requestId: string,
 ) {
+
+  const isTimeslotAvailable = await executeChild(CheckTimeslot, {
+    args: [{
+      restaurantId: params.restaurantId,
+      date: params.date,
+      pax: params.pax,
+      timeslot: params.timeslot,
+    }, requestId],
+    taskQueue: taskQueue.AVAILABILITY,
+    workflowId: `${taskQueue.AVAILABILITY}-check-requestId-${requestId}`,
+  })
+
+  if (!isTimeslotAvailable) {
+    // throw error
+  }
+
   const reservationId = await persistReservation({
     ...params,
     status:

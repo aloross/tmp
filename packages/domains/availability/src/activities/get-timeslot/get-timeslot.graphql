@@ -1,0 +1,16 @@
+query GetTimeslotForDay(
+  $restaurantId: uuid!
+  $date: date!
+) {
+  availability(
+    where: {
+      date: { _eq: $date }
+      restaurant_id: { _eq: $restaurantId }
+    }
+  ) {
+    id
+    restaurant_id
+    date
+    availabilities
+  }
+}
