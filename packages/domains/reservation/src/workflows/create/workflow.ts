@@ -1,8 +1,8 @@
 import { ParentClosePolicy, startChild } from '@temporalio/workflow'
 import { z } from 'zod'
-import { Reservation_Status_Enum_Enum } from '@tfm4/generated'
-import { taskQueue } from '@tfm4/config'
-import { computeAvailability } from '@tfm4/domain-availability'
+import { Reservation_Status_Enum_Enum } from '@tmp/generated'
+import { taskQueue } from '@tmp/config'
+import { computeAvailability } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
 
 export const CreateReservationSchema = z.object({

@@ -2,7 +2,7 @@ import { getReservation } from './get-reservation'
 
 const GetReservationMock = jest.fn()
 
-jest.mock('@tfm4/generated-back', () => ({
+jest.mock('@tmp/generated-back', () => ({
   sdk: {
     GetReservation: (args: unknown) => GetReservationMock(args),
   },

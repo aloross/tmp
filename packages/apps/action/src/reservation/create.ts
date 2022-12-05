@@ -1,6 +1,8 @@
 import { Handler } from 'aws-lambda'
-import { reservation } from '@tfm4/temporal-client'
+import { reservation } from '@tmp/temporal-client'
 import { createHandler } from '../create-handler'
 
-
-export const handler: Handler = createHandler(reservation.createReservation, false)
+export const handler: Handler = createHandler(
+  reservation.createReservation,
+  false,
+)

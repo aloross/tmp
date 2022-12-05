@@ -1,14 +1,14 @@
 {
-  "name": "tfm4",
+  "name": "tmp",
   "version": "0.1.0",
   "private": true,
   "packageManager": "yarn@3.2.4",
   "scripts": {
     "dev": "yarn run codegen:watch & yarn workspaces foreach -p -v -i run dev",
     "dev:all": "yarn run tsc:watch & yarn run dev",
-    "dev:worker": "yarn workspace @tfm4/worker-reservation dev",
-    "dev:action": "yarn workspace @tfm4/action dev",
-    "dev:front": "yarn workspace @tfm4/front dev",
+    "dev:worker": "yarn workspace @tmp/worker-reservation dev",
+    "dev:action": "yarn workspace @tmp/action dev",
+    "dev:front": "yarn workspace @tmp/front dev",
     "tsc:watch": "tsc --build tsconfig.references.json --watch",
     "tsc:build": "tsc --build tsconfig.references.json",
     "clean": "rimraf packages/**/dist && rimraf packages/**/*.tsbuildinfo && rimraf packages/**/node_modules",

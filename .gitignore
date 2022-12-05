@@ -40,8 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vscode!/tfm4.iml
-tfm4.iml
+.vscode!/tmp.iml
+tmp.iml
 
 .idea
 

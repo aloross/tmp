@@ -1,11 +1,11 @@
-import { Input } from '@tfm4/ui/dist/atoms/input'
-import { Button } from '@tfm4/ui/dist/atoms/button'
-import { Fieldset } from '@tfm4/ui/dist/atoms/fieldset'
-import { RadioGroup, RadioGroupItem } from '@tfm4/ui/dist/atoms/radio-group'
-import { Select, SelectItem } from '@tfm4/ui/dist/atoms/select'
+import { Input } from '@tmp/ui/dist/atoms/input'
+import { Button } from '@tmp/ui/dist/atoms/button'
+import { Fieldset } from '@tmp/ui/dist/atoms/fieldset'
+import { RadioGroup, RadioGroupItem } from '@tmp/ui/dist/atoms/radio-group'
+import { Select, SelectItem } from '@tmp/ui/dist/atoms/select'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styles from './create-reservation-form.module.css'
-import { useGetAllCustomersQuery } from '@tfm4/generated'
+import { useGetAllCustomersQuery } from '@tmp/generated'
 
 export type CreateBookingInputs = {
   customer: string

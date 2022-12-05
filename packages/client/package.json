@@ -1,12 +1,12 @@
 {
-  "name": "@tfm4/temporal-client",
+  "name": "@tmp/temporal-client",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
     "@temporalio/client": "^1.4.4",
-    "@tfm4/domain-availability": "workspace:*",
-    "@tfm4/domain-reservation": "workspace:*",
+    "@tmp/domain-availability": "workspace:*",
+    "@tmp/domain-reservation": "workspace:*",
     "nanoid": "3.x"
   },
   "devDependencies": {
