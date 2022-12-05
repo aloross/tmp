@@ -1,0 +1,16 @@
+query GetReservations($restaurantId: uuid!, $fromDate: date!, $toDate: date!) {
+  reservation(
+    where: {
+      date: { _gte: $fromDate, _lte: $toDate }
+      restaurant_id: { _eq: $restaurantId }
+    }
+  ) {
+    id
+    date
+    timeslot
+    pax
+    restaurant_id
+    created_at
+    updated_at
+  }
+}
