@@ -39,7 +39,12 @@ export function ReservationList() {
 
       {data?.reservation.map((value) => {
         return (
-          <Card key={value.id} date={value.date} guest={value.pax}>
+          <Card
+            key={value.id}
+            date={value.date}
+            guest={value.pax}
+            timeslot={value.timeslot}
+          >
             <pre>{JSON.stringify(value, null, 2)}</pre>
           </Card>
         )
