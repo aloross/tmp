@@ -6723,6 +6723,8 @@ __metadata:
   dependencies:
     "@temporalio/activity": ^1.4.4
     "@temporalio/workflow": ^1.4.4
+    "@tmp/generated-back": "workspace:^"
+    date-fns: ^2.29.3
     typescript: 4.8.4
   languageName: unknown
   linkType: soft
@@ -6768,7 +6770,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tmp/generated-back@workspace:*, @tmp/generated-back@workspace:packages/generated/back":
+"@tmp/generated-back@workspace:*, @tmp/generated-back@workspace:^, @tmp/generated-back@workspace:packages/generated/back":
   version: 0.0.0-use.local
   resolution: "@tmp/generated-back@workspace:packages/generated/back"
   dependencies:

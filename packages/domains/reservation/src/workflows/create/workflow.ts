@@ -1,6 +1,6 @@
 import { ParentClosePolicy, startChild } from '@temporalio/workflow'
 import { z } from 'zod'
-import { Reservation_Status_Enum_Enum } from '@tmp/generated'
+import { Reservation_Status_Enum_Enum } from '@tmp/generated-back'
 import { taskQueue } from '@tmp/config'
 import { computeAvailability } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
