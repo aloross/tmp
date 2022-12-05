@@ -1,6 +1,6 @@
 import { ParentClosePolicy, startChild } from '@temporalio/workflow'
 import { z } from 'zod'
-import { Reservation_Status_Enum_Enum } from '@tmp/generated'
+import { Reservation_Status_Enum_Enum } from '@tmp/generated-back'
 import { taskQueue } from '@tmp/config'
 import { computeAvailability } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
@@ -27,7 +27,7 @@ export async function CreateReservation(
         : Reservation_Status_Enum_Enum.Confirm,
   })
 
-  const childHandle = await startChild(computeAvailability, {
+  await startChild(computeAvailability, {
     args: [params.restaurantId, requestId],
     taskQueue: taskQueue.AVAILABILITY,
     workflowId: `${taskQueue.AVAILABILITY}-requestId-${requestId}`,
