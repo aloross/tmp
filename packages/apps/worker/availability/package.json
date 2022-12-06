@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/worker.js",
-    "dev": "nodemon dist/worker.js"
+    "dev": "nodemon --watch ../../../domains/availability/dist dist/worker.js  "
   },
   "dependencies": {
     "@temporalio/activity": "^1.4.4",
