@@ -25,9 +25,5 @@ export async function CheckTimeslot(
 
   const result = await checkTimeslot(availabilities?.availability[0]?.availabilities[timeslot], pax)
 
-  console.log({
-    result,
-  })
-
   return result
 }
