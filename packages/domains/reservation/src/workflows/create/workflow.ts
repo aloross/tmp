@@ -1,6 +1,6 @@
 import { ParentClosePolicy, startChild, executeChild } from '@temporalio/workflow'
 import { z } from 'zod'
-import { Reservation_Status_Enum_Enum } from '@tmp/generated-back'
+import { Reservation_Status_Enum_Enum, CreateReservationResponse } from '@tmp/generated-back'
 import { taskQueue } from '@tmp/config'
 import { computeAvailability, CheckTimeslot } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
@@ -19,7 +19,7 @@ export type CreateReservationParams = z.infer<typeof CreateReservationSchema>
 export async function CreateReservation(
   params: CreateReservationParams,
   requestId: string,
-) {
+): Promise<CreateReservationResponse> {
   console.info({
     workflow: 'CreateReservation',
     params,
@@ -38,11 +38,12 @@ export async function CreateReservation(
   })
 
   if (!isTimeslotAvailable) {
-    console.log({ isTimeslotAvailable })
-    // throw error
     return {
       success: false,
       message: 'INVENTORY_EMPTY',
+      data: {
+        reservationId: null,
+      }
     }
   }
 

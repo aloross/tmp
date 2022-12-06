@@ -41,4 +41,5 @@ custom_types:
     - name: CreateReservationOutput
     - name: CreateReservationResponse
     - name: Response
+    - name: CreateReservationData
   scalars: []

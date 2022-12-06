@@ -1,7 +1,7 @@
 type Mutation {
   createReservation(
     args: CreateReservationInput!
-  ): Response
+  ): CreateReservationResponse
 }
 
 type Mutation {
@@ -23,12 +23,18 @@ type CreateReservationOutput {
 }
 
 type CreateReservationResponse {
-  reservationId: String!
+  success: Boolean!
+  message: String
+  data: CreateReservationData
 }
 
 type Response {
   success: Boolean!
   message: String
   data: CreateReservationResponse
+}
+
+type CreateReservationData {
+  reservationId: String
 }
 
