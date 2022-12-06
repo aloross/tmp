@@ -6,6 +6,7 @@
         "composite": true
     },
   "references": [
+    { "path": "../../generated/back" },
     { "path": "../../helper" }
   ]
 }

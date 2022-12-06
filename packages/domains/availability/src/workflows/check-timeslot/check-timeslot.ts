@@ -1,6 +1,6 @@
 import z from 'zod'
 import { checkTimeslot, getTimeslotForDay } from './activities'
-import { format } from 'date-fns'
+
 
 export const CheckTimeslotSchema = z.object({
   restaurantId: z.string(),
@@ -10,17 +10,24 @@ export const CheckTimeslotSchema = z.object({
 })
 export type CheckTimeslotParams = z.infer<typeof CheckTimeslotSchema>
 
-const DATE_FORMAT_OUTPUT = 'yyyy-MM-dd'
 
 export async function CheckTimeslot(
   { restaurantId, date, pax, timeslot }: CheckTimeslotParams,
   requestId: string,
 ): Promise<any> {
-  const formattedDate = format(new Date(date), DATE_FORMAT_OUTPUT)
+  console.info({
+    workflow: 'CheckTimeslot',
+    params: { restaurantId, date, pax, timeslot },
+    requestId,
+  })
 
-  const availabilities = await getTimeslotForDay(restaurantId, formattedDate)
+  const availabilities = await getTimeslotForDay(restaurantId, date)
 
   const result = await checkTimeslot(availabilities?.availability[0]?.availabilities[timeslot], pax)
+
+  console.log({
+    result,
+  })
 
   return result
 }

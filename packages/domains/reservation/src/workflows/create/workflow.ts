@@ -5,6 +5,7 @@ import { taskQueue } from '@tmp/config'
 import { computeAvailability, CheckTimeslot } from '@tmp/domain-availability'
 import { persistReservation } from './activities'
 
+
 export const CreateReservationSchema = z.object({
   restaurantId: z.string(),
   customerId: z.string(),
@@ -19,6 +20,11 @@ export async function CreateReservation(
   params: CreateReservationParams,
   requestId: string,
 ) {
+  console.info({
+    workflow: 'CreateReservation',
+    params,
+    requestId,
+  })
 
   const isTimeslotAvailable = await executeChild(CheckTimeslot, {
     args: [{
@@ -32,7 +38,12 @@ export async function CreateReservation(
   })
 
   if (!isTimeslotAvailable) {
+    console.log({ isTimeslotAvailable })
     // throw error
+    return {
+      success: false,
+      message: 'INVENTORY_EMPTY',
+    }
   }
 
   const reservationId = await persistReservation({
@@ -54,5 +65,11 @@ export async function CreateReservation(
   // await childHandle.signal('anySignal');
   // const result = childHandle.result();
 
-  return reservationId
+  return {
+    success: true,
+    message: 'RESERVATION_CREATED',
+    data: {
+      reservationId,
+    },
+  }
 }
