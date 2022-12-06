@@ -20,11 +20,6 @@ export async function CheckTimeslot(
 
   const availabilities = await getTimeslotForDay(restaurantId, formattedDate)
 
-  console.log('-===============')
-  console.log('-===============')
-  console.log(availabilities)
-  console.log('-===============')
-
   const result = await checkTimeslot(availabilities?.availability[0]?.availabilities[timeslot], pax)
 
   return result
