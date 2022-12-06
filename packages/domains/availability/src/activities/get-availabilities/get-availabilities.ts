@@ -7,8 +7,6 @@ export const getAvailabilities = async (
   fromDate: string,
   toDate: string,
 ) => {
-  console.log('getAvailabilities for', restaurantId)
-
   const availabilities = await GetAvailabilities({
     restaurantId,
     fromDate,

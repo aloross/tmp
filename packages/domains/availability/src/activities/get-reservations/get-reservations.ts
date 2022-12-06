@@ -13,8 +13,6 @@ export const getReservations = async (
   const fromParsedDate = parse(fromDate, DATE_FORMAT_OUTPUT, new Date())
   const toParsedDate = parse(toDate, DATE_FORMAT_OUTPUT, new Date())
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   const reservations = await GetReservations({
     restaurantId,
     fromDate: fromParsedDate.toISOString(),
