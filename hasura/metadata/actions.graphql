@@ -28,12 +28,6 @@ type CreateReservationResponse {
   data: CreateReservationData
 }
 
-type Response {
-  success: Boolean!
-  message: String
-  data: CreateReservationResponse
-}
-
 type CreateReservationData {
   reservationId: String
 }
