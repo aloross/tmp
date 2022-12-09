@@ -2,6 +2,10 @@
 
 Temporal Management PoC
 
+## Slides
+
+[Slides](Discovering_of_a_Workflow_Engine.pdf)
+
 ## Install
 
 ```shell
