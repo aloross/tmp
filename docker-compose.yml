@@ -103,7 +103,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: pgadmin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
   graphql-engine:
-    image: hasura/graphql-engine:v2.13.0
+    image: hasura/graphql-engine:v2.13.2
     ports:
       - "8081:8080"
     depends_on:
