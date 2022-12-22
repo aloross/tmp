@@ -20,8 +20,9 @@ export default function CreateBooking() {
   const [createReservationMutation, { loading }] =
     useCreateReservationMutation()
 
-  const onSubmit: OnSubmit = (data: CreateBookingInputs) => {
-    createReservationMutation({
+
+  const onSubmit: OnSubmit = async (data: CreateBookingInputs) => {
+    const response = await createReservationMutation({
       variables: {
         args: {
           customerId: data.customer,
@@ -32,6 +33,12 @@ export default function CreateBooking() {
         },
       },
     })
+
+    console.log(
+      'createReservation',
+      `success: ${response.data?.createReservation?.success}`,
+      response.data?.createReservation,
+    )
   }
 
   return (

@@ -18,6 +18,12 @@ export async function computeAvailability(
   restaurantId: ComputeAvailabilityParams,
   requestId: string,
 ): Promise<any> {
+  console.info({
+    workflow: 'computeAvailability',
+    params: { restaurantId },
+    requestId,
+  })
+
   const fromDate = format(new Date(), DATE_FORMAT_OUTPUT)
   const toDate = format(add(new Date(), { days: 1 }), DATE_FORMAT_OUTPUT)
 

@@ -1,3 +1,9 @@
 mutation createReservation($args: CreateReservationInput!) {
-  createReservation(args: $args)
+  createReservation(args: $args) {
+    success
+    message
+    data {
+      reservationId
+    }
+  }
 }
